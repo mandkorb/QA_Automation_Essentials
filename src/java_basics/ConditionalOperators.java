@@ -1,6 +1,6 @@
 package java_basics;
 
-public class ConditionalOperatorsDemo {
+public class ConditionalOperators {
     // Method to demonstrate the if-else operator
     public void ifElseDemo(int number) {
         if (number > 0) {
@@ -48,7 +48,7 @@ public class ConditionalOperatorsDemo {
 
     public static void main(String[] args) {
         // Creating ConditionalOperatorsDemo object
-        ConditionalOperatorsDemo demo = new ConditionalOperatorsDemo();
+        ConditionalOperators demo = new ConditionalOperators();
 
         // Demonstrating the if-else operator
         System.out.println("Demonstration of if-else operator:");

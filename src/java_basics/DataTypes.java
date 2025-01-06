@@ -1,6 +1,6 @@
 package java_basics;
 
-public class DataTypesDemo {
+public class DataTypes {
     // Initialize all data types
     byte byteValue = 127; // 1 byte, value from -128 to 127
     short shortValue = 32000; // 2 bytes, values from -32,768 to 32,767
@@ -44,9 +44,9 @@ public class DataTypesDemo {
 
     public static void main(String[] args) {
         // Creating DataTypesDemo object
-        DataTypesDemo dataTypesDemo = new DataTypesDemo();
+        DataTypes dataTypes = new DataTypes();
 
         // Calling a method to demonstrate operations
-        dataTypesDemo.performOperations();
+        dataTypes.performOperations();
     }
 }
