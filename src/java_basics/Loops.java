@@ -3,10 +3,28 @@ package java_basics;
 public class Loops {
     // Method to demonstrate the 'for' loop
     public void forLoopDemo() {
+        String str = "Hello, World!";
         System.out.println("Demonstration of 'for' loop:");
+
         for (int i = 1; i <= 5; i++) {
             System.out.println("Iteration: " + i);
         }
+
+        System.out.println("\nWays of arrays iteration:");
+        System.out.print("Direct: ");
+        for (int i = 0; i < str.length(); i++) {
+            System.out.print(str.charAt(i) + " ");
+        }
+        System.out.print("\nReverse #1: ");
+        for (int j = str.length() - 1; j >= 0; j--) {
+            System.out.print(str.charAt(j) + " ");
+        }
+
+        System.out.print("\nReverse #2: ");
+        for (int k = 0; k < str.length(); k++) {
+            System.out.print(str.charAt(str.length() - k - 1) + " ");
+        }
+        System.out.println();
     }
 
     // Method to demonstrate the 'while' loop

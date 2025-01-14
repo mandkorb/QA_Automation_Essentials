@@ -45,3 +45,6 @@ Thumbs.db
 *.iml
 *.mp3
 *.form
+
+# Test space
+src/java_basics/playground

@@ -18,6 +18,11 @@ public class ConditionalOperators {
             case "monday":
                 System.out.println("It's Monday, the start of the week.");
                 break;
+            case "tuesday":
+            case "wednesday":
+            case "thursday":
+                System.out.println("It's " + day + ", far from weekends");
+                break;
             case "friday":
                 System.out.println("It's Friday, almost the weekend.");
                 break;
@@ -25,7 +30,7 @@ public class ConditionalOperators {
                 System.out.println("It's Sunday, a day of rest.");
                 break;
             default:
-                System.out.println("It's a regular day.");
+                System.out.println("Wrong input.");
         }
     }
 
@@ -61,6 +66,7 @@ public class ConditionalOperators {
         demo.switchCaseDemo("Monday");
         demo.switchCaseDemo("Friday");
         demo.switchCaseDemo("Wednesday");
+        demo.switchCaseDemo("Not a day");
 
         // Demonstrating the ternary operator
         System.out.println("\nDemonstration of ternary operator:");
