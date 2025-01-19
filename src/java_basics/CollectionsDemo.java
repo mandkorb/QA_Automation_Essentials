@@ -99,7 +99,7 @@ public class CollectionsDemo {
         System.out.println("Keys collection: " + integers);
         System.out.println("Values collection: " + values);
 
-        System.out.println("\nDemonstrating of nesting Collections: ");
+        System.out.println("\nDemonstrating of nesting Collections:");
 
         Map<String, Object> user = new HashMap<>();
         List<Map<String, Object>> users = new ArrayList<>();
