@@ -98,6 +98,30 @@ public class CollectionsDemo {
 
         System.out.println("Keys collection: " + integers);
         System.out.println("Values collection: " + values);
+
+        System.out.println("\nDemonstrating of nesting Collections: ");
+
+        Map<String, Object> user = new HashMap<>();
+        List<Map<String, Object>> users = new ArrayList<>();
+
+        user.put("name", "Andrii");
+        user.put("age", 22);
+        users.add(user);
+
+        user = new HashMap<>();
+        user.put("name", "Juliia");
+        user.put("age", 21);
+        users.add(user);
+
+        System.out.print("Raw list collecting with users' map: ");
+        System.out.println(users);
+
+        System.out.println("After looping: ");
+        for (Map<String, Object> record : users){
+            for (Map.Entry<String, Object> entry : record.entrySet()){
+                System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+            }
+        }
     }
 
     // Main method to demonstrate collections
