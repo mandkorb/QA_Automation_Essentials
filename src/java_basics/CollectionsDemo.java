@@ -122,6 +122,11 @@ public class CollectionsDemo {
                 System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
             }
         }
+
+        System.out.println("\nAlternative: ");
+        for (Map<String, Object> userRecord : users) {
+            System.out.println("name: " + userRecord.get("name") + ", age: " + userRecord.get("age"));
+        }
     }
 
     // Main method to demonstrate collections
