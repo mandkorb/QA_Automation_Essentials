@@ -1,4 +1,4 @@
-package java_basics;
+package language_basics;
 
 public class Loops {
     // Method to demonstrate the 'for' loop

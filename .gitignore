@@ -47,4 +47,4 @@ Thumbs.db
 *.form
 
 # Test space
-src/java_basics/playground
+src/main/java/language_basics/playground

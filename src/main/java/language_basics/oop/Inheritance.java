@@ -1,4 +1,4 @@
-package java_basics.oop;
+package language_basics.oop;
 
 // Base class (Parent class)
 class Animal {
@@ -13,6 +13,11 @@ class Animal {
     // Method to display the sound of the animal
     public void makeSound() {
         System.out.println("Some generic animal sound");
+    }
+
+    public Animal setName(String name) { // Used for multi object calling
+        this.name = name;
+        return this;
     }
 
     // Getter for the name
@@ -31,6 +36,12 @@ class Dog extends Animal {
     // Constructor for Dog, calling the parent class constructor
     public Dog(String name) {
         super(name); // Calls the constructor of the parent class
+    }
+
+    @Override
+    public Dog setName(String name) { // Used for multi object calling
+        super.setName(name);
+        return this;
     }
 
     // Overriding the makeSound method

@@ -1,4 +1,4 @@
-package java_basics.oop;
+package language_basics.oop;
 
 // A class to demonstrate basic concepts of classes and objects
 public class Encapsulation {
@@ -42,8 +42,8 @@ public class Encapsulation {
     // Main method to demonstrate classes and objects
     public static void main(String[] args) {
         // Creating objects of the class
-        java_basics.oop.Encapsulation person1 = new java_basics.oop.Encapsulation("Alice", 25);
-        java_basics.oop.Encapsulation person2 = new java_basics.oop.Encapsulation("Bob", 30);
+        Encapsulation person1 = new Encapsulation("Alice", 25);
+        Encapsulation person2 = new Encapsulation("Bob", 30);
 
         // Displaying details of person1
         System.out.println("Person 1 Details:");

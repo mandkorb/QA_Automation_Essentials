@@ -1,4 +1,4 @@
-package java_basics;
+package language_basics;
 
 public class ExceptionsHandling {
     // Method to demonstrate a try-catch block

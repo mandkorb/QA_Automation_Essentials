@@ -1,4 +1,4 @@
-package java_basics;
+package language_basics;
 
 public class ConditionalOperators {
     // Method to demonstrate the if-else operator
