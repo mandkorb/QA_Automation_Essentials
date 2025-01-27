@@ -46,5 +46,6 @@ Thumbs.db
 *.mp3
 *.form
 
-# Test space
+# Test spaces
 src/main/java/language_basics/playground
+src/main/java/selenium_basics/playground
