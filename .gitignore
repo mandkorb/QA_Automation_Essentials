@@ -35,6 +35,9 @@ Thumbs.db
 *.exe
 *.war
 
+# Drivers
+drivers
+
 # Large media files
 *.mp4
 *.tiff
@@ -47,5 +50,5 @@ Thumbs.db
 *.form
 
 # Test spaces
-src/main/java/language_basics/playground
-src/main/java/selenium_basics/playground
+src/main/java/playground
+src/test/java/playground

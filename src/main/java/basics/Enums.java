@@ -1,4 +1,4 @@
-package language_basics;
+package basics;
 
 public class Enums {
     // Enum for demonstrating basic operations

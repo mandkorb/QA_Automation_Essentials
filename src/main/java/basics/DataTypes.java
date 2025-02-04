@@ -1,4 +1,4 @@
-package language_basics;
+package basics;
 
 public class DataTypes {
     // Initialize all data types

@@ -1,4 +1,4 @@
-package language_basics;
+package basics;
 
 public class Strings {
     // Method to demonstrate common string operations

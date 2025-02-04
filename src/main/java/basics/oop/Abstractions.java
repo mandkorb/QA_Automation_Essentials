@@ -1,4 +1,4 @@
-package language_basics.oop;
+package basics.oop;
 
 // Abstract class
 abstract class Vehicle {

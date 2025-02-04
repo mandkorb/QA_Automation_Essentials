@@ -1,4 +1,4 @@
-package language_basics;
+package basics;
 
 import java.util.*;
 

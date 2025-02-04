@@ -1,4 +1,4 @@
-package language_basics.oop;
+package basics.oop;
 
 // Parent class
 class Shape {

@@ -1,4 +1,4 @@
-package language_basics;
+package basics;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;

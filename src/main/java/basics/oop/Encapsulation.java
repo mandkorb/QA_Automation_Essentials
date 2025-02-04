@@ -1,4 +1,4 @@
-package language_basics.oop;
+package basics.oop;
 
 // A class to demonstrate basic concepts of classes and objects
 public class Encapsulation {
