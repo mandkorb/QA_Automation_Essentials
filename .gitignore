@@ -49,6 +49,9 @@ drivers
 *.mp3
 *.form
 
+# Properties
+*.properties
+
 # Test spaces
 src/main/java/playground
 src/test/java/playground
