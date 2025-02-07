@@ -9,13 +9,13 @@ public abstract class BaseTest {
     protected WebDriver driver;
 
     @BeforeSuite
-    private void setupSuite() {
+    public void setupSuite() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
     @AfterSuite
-    private void teardown() {
+    public void teardown() {
         if (driver != null) {
             driver.quit();
         }
