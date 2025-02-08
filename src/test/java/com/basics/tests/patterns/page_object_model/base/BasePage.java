@@ -46,6 +46,10 @@ public abstract class BasePage {
         wait.until(elementToBeClickable(locator)).click();
     }
 
+    public void clickonButtonByCssSelector(By locator){
+        wait.until(elementToBeClickable(locator)).click();
+    }
+
     protected void waitForElementAppearance(WebElement element){
         wait.until(visibilityOf(element));
     }

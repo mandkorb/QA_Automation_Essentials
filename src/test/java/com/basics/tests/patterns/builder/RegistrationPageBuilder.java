@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class RegistrationPage {
+public class RegistrationPageBuilder {
     private final WebDriver driver;
     private final By firstNameField = By.id("firstName");
     private final By lastNameField = By.id("lastName");
@@ -17,7 +17,7 @@ public class RegistrationPage {
     private final By submitButton = By.id("submit");
     private final By successMessage = By.cssSelector(".alert-success");
 
-    public RegistrationPage(WebDriver driver) {
+    public RegistrationPageBuilder(WebDriver driver) {
         this.driver = driver;
     }
 

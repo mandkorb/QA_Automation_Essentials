@@ -8,14 +8,14 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-public class RegistrationTests {
+public class RegistrationTestsBuilder {
     private WebDriver driver;
-    private RegistrationPage registrationPage;
+    private RegistrationPageBuilder registrationPage;
 
     @BeforeMethod
     public void setup() {
         driver = new ChromeDriver(); // Або через DriverFactory
-        registrationPage = new RegistrationPage(driver);
+        registrationPage = new RegistrationPageBuilder(driver);
         driver.get("https://yourapp.com/register");
     }
 
