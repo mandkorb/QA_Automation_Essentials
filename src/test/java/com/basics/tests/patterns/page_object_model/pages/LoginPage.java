@@ -25,20 +25,25 @@ public class LoginPage extends BasePage {
         return PAGE_SLUG;
     }
 
-    public void enterUsernameField(String value){
+    public void enterUsernameField(String value) {
         driver.findElement(usernameField).sendKeys(value);
     }
 
-    public void enterPasswordField(String value){
+    public void enterPasswordField(String value) {
         driver.findElement(passwordField).sendKeys(value);
     }
 
-    public SecurePage clickOnSubmitButton(){
+    public SecurePage clickOnSubmitButton() {
         clickonButtonByCssSelector(submitButton);
         return new SecurePage(driver);
     }
 
-    public boolean isErrorFlashPresent(){
+    public boolean isErrorFlashPresent() {
         return driver.findElement(errorFlash).isDisplayed();
     }
+
+    public String getFlashTest() {
+        return driver.findElement(By.cssSelector("#flash")).getText();
+    }
+
 }

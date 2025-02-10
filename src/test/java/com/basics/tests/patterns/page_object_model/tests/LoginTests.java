@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class LoginTests extends BaseTest {
@@ -31,12 +32,13 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(dataProvider = "invalidCredentials")
-    public void negativeLogin(String usernameValue, String password){
+    public void negativeLogin(String usernameValue, String password, String errorMessage){
         loginPage.open();
         loginPage.enterUsernameField(usernameValue);
         loginPage.enterPasswordField(password);
         loginPage.clickOnSubmitButton();
         assertTrue(loginPage.isErrorFlashPresent());
+        assertTrue(loginPage.getFlashTest().contains(errorMessage));
     }
 
     @DataProvider(name = "validCredentials")
@@ -49,9 +51,9 @@ public class LoginTests extends BaseTest {
     @DataProvider(name = "invalidCredentials")
     public Object[][] provideInvalidLoginCredentials(){
         return new Object[][]{
-                {"", "SuperSecretPassword!"},
-                {"tomsmith", "!"},
-                {"", ""}
+                {"", "SuperSecretPassword!", "Your username is invalid!"},
+                {"tomsmith", "", "Your password is invalid!"},
+                {"", "", "Your username is invalid!"}
         };
     }
 }
