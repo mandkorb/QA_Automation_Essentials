@@ -32,13 +32,8 @@ public abstract class BasePage {
         driver.get(baseUrl + getPageSlug());
     }
 
-    public boolean atPage(String expectedTitle) {
-        try {
-            wait.until(titleIs(expectedTitle));
-            return true;
-        } catch (TimeoutException e) {
-            return false;
-        }
+    public boolean atPage() {
+        return wait.until(urlContains(getPageSlug()));
     }
 
     public void clickOnButtonByText(String buttonText) {

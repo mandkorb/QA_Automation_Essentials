@@ -23,10 +23,6 @@ public class AlertsPage extends BasePage {
         return PAGE_SLUG;
     }
 
-    public boolean atPage() {
-        return super.atPage(PAGE_TITLE);
-    }
-
     public void clickOnJSAlert(){
         clickOnButtonByText(AlertButtons.ALERT.getButtonText());
     }

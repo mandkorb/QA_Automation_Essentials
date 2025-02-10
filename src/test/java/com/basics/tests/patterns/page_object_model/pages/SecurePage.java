@@ -10,7 +10,7 @@ import java.util.List;
 public class SecurePage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/secure";
-    private final By successFlash = By.cssSelector(".flash.success");
+    private final By successFlash = By.cssSelector("#flash.success");
     private final By header = By.cssSelector("h2");
     private final By description = By.cssSelector(".subheader");
     private final By signOutButton = By.cssSelector("[class$=signout]");
@@ -40,7 +40,7 @@ public class SecurePage extends BasePage {
         return true;
     }
 
-    public boolean isAtSecurePage() {
-        return driver.getCurrentUrl().contains(PAGE_SLUG);
+    public void logout(){
+        driver.findElement(signOutButton).click();
     }
 }

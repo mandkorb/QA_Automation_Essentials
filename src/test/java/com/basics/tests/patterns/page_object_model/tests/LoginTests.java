@@ -24,8 +24,10 @@ public class LoginTests extends BaseTest {
         loginPage.enterUsernameField(usernameValue);
         loginPage.enterPasswordField(password);
         SecurePage securePage = loginPage.clickOnSubmitButton();
-        assertTrue(securePage.isAtSecurePage());
+        assertTrue(securePage.atPage());
         assertTrue(securePage.isAllSuccessElementsAvailable());
+        securePage.logout();
+        assertTrue(loginPage.atPage());
     }
 
     @DataProvider(name = "validCredentials")
@@ -34,6 +36,4 @@ public class LoginTests extends BaseTest {
                 {"tomsmith", "SuperSecretPassword!"}
         };
     }
-
-
 }

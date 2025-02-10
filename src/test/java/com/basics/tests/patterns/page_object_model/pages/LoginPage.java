@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/login";
-    private final static By usernameField = By.cssSelector("#username");
+    private final By usernameField = By.cssSelector("#username");
     private final By passwordField = By.cssSelector("#password");
     private final By submitButton = By.cssSelector("button[type='submit']");
 
