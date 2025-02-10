@@ -14,10 +14,6 @@ public class FramesPage extends BasePage {
         super(driver);
     }
 
-    public FramesPage(WebDriver driver, int waitDuration) {
-        super(driver, waitDuration);
-    }
-
     @Override
     protected String getPageSlug() {
         return PAGE_SLUG;

@@ -16,10 +16,6 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public LoginPage(WebDriver driver, int waitDuration) {
-        super(driver, waitDuration);
-    }
-
     @Override
     protected String getPageSlug() {
         return PAGE_SLUG;
@@ -34,7 +30,7 @@ public class LoginPage extends BasePage {
     }
 
     public SecurePage clickOnSubmitButton() {
-        clickonButtonByCssSelector(submitButton);
+        clickOnButtonByCssSelector(submitButton);
         return new SecurePage(driver);
     }
 

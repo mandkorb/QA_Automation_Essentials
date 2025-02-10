@@ -2,7 +2,6 @@ package com.basics.tests.patterns.page_object_model.base;
 
 import com.basics.tests.config.Configuration;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,17 +13,13 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 public abstract class BasePage {
     private static final int DEFAULT_WAIT_DURATION = 10;
     protected final WebDriver driver;
-    protected final WebDriverWait wait;
+    protected WebDriverWait wait;
     private final String baseUrl;
 
     public BasePage(WebDriver driver) {
-        this(driver, DEFAULT_WAIT_DURATION);
-    }
-
-    public BasePage(WebDriver driver, int waitDuration) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(waitDuration));
         baseUrl = Configuration.getProperty("heroku.url");
+        setWaitDurationInSeconds(DEFAULT_WAIT_DURATION);
     }
 
     protected abstract String getPageSlug();
@@ -42,7 +37,7 @@ public abstract class BasePage {
         wait.until(elementToBeClickable(locator)).click();
     }
 
-    public void clickonButtonByCssSelector(By locator) {
+    public void clickOnButtonByCssSelector(By locator) {
         wait.until(elementToBeClickable(locator)).click();
     }
 
@@ -52,6 +47,10 @@ public abstract class BasePage {
 
     protected void waitForElementClickable(WebElement element) {
         wait.until(elementToBeClickable(element));
+    }
+
+    public void setWaitDurationInSeconds(int waitDuration) {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(waitDuration));
     }
 }
 

@@ -15,10 +15,6 @@ public class AlertsPage extends BasePage {
         super(driver);
     }
 
-    public AlertsPage(WebDriver driver, int waitDuration) {
-        super(driver, waitDuration);
-    }
-
     @Override
     protected String getPageSlug() {
         return PAGE_SLUG;
