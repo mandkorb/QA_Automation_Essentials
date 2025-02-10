@@ -10,6 +10,7 @@ public class LoginPage extends BasePage {
     private final By usernameField = By.cssSelector("#username");
     private final By passwordField = By.cssSelector("#password");
     private final By submitButton = By.cssSelector("button[type='submit']");
+    private final By errorFlash = By.cssSelector("#flash.error");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -35,5 +36,9 @@ public class LoginPage extends BasePage {
     public SecurePage clickOnSubmitButton(){
         clickonButtonByCssSelector(submitButton);
         return new SecurePage(driver);
+    }
+
+    public boolean isErrorFlashPresent(){
+        return driver.findElement(errorFlash).isDisplayed();
     }
 }

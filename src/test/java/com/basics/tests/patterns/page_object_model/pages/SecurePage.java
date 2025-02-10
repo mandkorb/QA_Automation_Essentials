@@ -30,7 +30,6 @@ public class SecurePage extends BasePage {
 
     public boolean isAllSuccessElementsAvailable() {
         List<By> elements = List.of(successFlash, header, description, signOutButton);
-
         for (By locator : elements) {
             WebElement element = driver.findElement(locator);
             if (!element.isDisplayed()){

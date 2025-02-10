@@ -30,10 +30,28 @@ public class LoginTests extends BaseTest {
         assertTrue(loginPage.atPage());
     }
 
+    @Test(dataProvider = "invalidCredentials")
+    public void negativeLogin(String usernameValue, String password){
+        loginPage.open();
+        loginPage.enterUsernameField(usernameValue);
+        loginPage.enterPasswordField(password);
+        loginPage.clickOnSubmitButton();
+        assertTrue(loginPage.isErrorFlashPresent());
+    }
+
     @DataProvider(name = "validCredentials")
     public Object[][] provideValidLoginCredentials(){
         return new Object[][]{
                 {"tomsmith", "SuperSecretPassword!"}
+        };
+    }
+
+    @DataProvider(name = "invalidCredentials")
+    public Object[][] provideInvalidLoginCredentials(){
+        return new Object[][]{
+                {"", "SuperSecretPassword!"},
+                {"tomsmith", "!"},
+                {"", ""}
         };
     }
 }
