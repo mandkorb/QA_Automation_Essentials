@@ -6,6 +6,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
@@ -41,15 +42,15 @@ public abstract class BasePage {
         wait.until(elementToBeClickable(locator)).click();
     }
 
-    public void clickonButtonByCssSelector(By locator){
+    public void clickonButtonByCssSelector(By locator) {
         wait.until(elementToBeClickable(locator)).click();
     }
 
-    protected void waitForElementAppearance(WebElement element){
+    protected void waitForElementAppearance(WebElement element) {
         wait.until(visibilityOf(element));
     }
 
-    protected void waitForElementClickable(WebElement element){
+    protected void waitForElementClickable(WebElement element) {
         wait.until(elementToBeClickable(element));
     }
 }

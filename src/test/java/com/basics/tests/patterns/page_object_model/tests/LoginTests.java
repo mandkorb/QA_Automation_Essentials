@@ -1,6 +1,5 @@
 package com.basics.tests.patterns.page_object_model.tests;
 
-import com.basics.tests.config.Configuration;
 import com.basics.tests.patterns.page_object_model.base.BaseTest;
 import com.basics.tests.patterns.page_object_model.pages.LoginPage;
 import com.basics.tests.patterns.page_object_model.pages.SecurePage;
@@ -14,13 +13,13 @@ public class LoginTests extends BaseTest {
     private LoginPage loginPage;
 
     @BeforeMethod
-    public void openAlertsPage(){
+    public void openAlertsPage() {
         loginPage = new LoginPage(driver);
         loginPage.open();
     }
 
     @Test(dataProvider = "validCredentials")
-    public void positiveLogin(String usernameValue, String password){
+    public void loginWithValidCredentials(String usernameValue, String password) {
         loginPage.open();
         loginPage.enterUsernameField(usernameValue);
         loginPage.enterPasswordField(password);
@@ -32,7 +31,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(dataProvider = "invalidCredentials")
-    public void negativeLogin(String usernameValue, String password, String errorMessage){
+    public void loginWithInvalidCredentials(String usernameValue, String password, String errorMessage) {
         loginPage.open();
         loginPage.enterUsernameField(usernameValue);
         loginPage.enterPasswordField(password);
@@ -42,14 +41,14 @@ public class LoginTests extends BaseTest {
     }
 
     @DataProvider(name = "validCredentials")
-    public Object[][] provideValidLoginCredentials(){
+    public Object[][] provideValidLoginCredentials() {
         return new Object[][]{
                 {USERNAME, PASSWORD}
         };
     }
 
     @DataProvider(name = "invalidCredentials")
-    public Object[][] provideInvalidLoginCredentials(){
+    public Object[][] provideInvalidLoginCredentials() {
         return new Object[][]{
                 {USERNAME + "1", PASSWORD, "Your username is invalid!"},
                 {USERNAME, PASSWORD + "1", "Your password is invalid!"},

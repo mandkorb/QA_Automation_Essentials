@@ -18,7 +18,7 @@ public class Configuration {
 
     public static String getProperty(String key) {
         if (properties == null) {
-            throw new IllegalStateException("Configuration failed!");
+            throw new IllegalStateException("Configuration load failed!");
         }
         return properties.getProperty(key);
     }

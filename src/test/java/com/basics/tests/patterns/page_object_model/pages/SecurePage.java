@@ -32,14 +32,14 @@ public class SecurePage extends BasePage {
         List<By> elements = List.of(successFlash, header, description, signOutButton);
         for (By locator : elements) {
             WebElement element = driver.findElement(locator);
-            if (!element.isDisplayed()){
+            if (!element.isDisplayed()) {
                 return false;
             }
         }
         return true;
     }
 
-    public void logout(){
+    public void logout() {
         driver.findElement(signOutButton).click();
     }
 }

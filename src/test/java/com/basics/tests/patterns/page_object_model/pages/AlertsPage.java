@@ -1,6 +1,7 @@
 package com.basics.tests.patterns.page_object_model.pages;
 
 import com.basics.tests.patterns.page_object_model.base.BasePage;
+import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -23,38 +24,39 @@ public class AlertsPage extends BasePage {
         return PAGE_SLUG;
     }
 
-    public void clickOnJSAlert(){
+    public void clickOnJSAlert() {
         clickOnButtonByText(AlertButtons.ALERT.getButtonText());
     }
 
-    public void clickOnJSConfirm(){
+    public void clickOnJSConfirm() {
         clickOnButtonByText(AlertButtons.CONFIRM.getButtonText());
     }
 
-    public void clickOnJSPrompt(){
+    public void clickOnJSPrompt() {
         clickOnButtonByText(AlertButtons.PROMPT.getButtonText());
     }
 
-    public String getResultMessage(){
+    public String getResultMessage() {
         return driver.findElement(By.id("result")).getText();
     }
 
-    public String getAlertText(){
+    public String getAlertText() {
         return wait.until(alertIsPresent()).getText();
     }
 
-    public void acceptAlert(){
+    public void acceptAlert() {
         wait.until(alertIsPresent()).accept();
     }
 
-    public void dismissAlert(){
+    public void dismissAlert() {
         wait.until(alertIsPresent()).dismiss();
     }
 
-    public void sendKeysToAlert(String prompt){
+    public void sendKeysToAlert(String prompt) {
         wait.until(alertIsPresent()).sendKeys(prompt);
     }
 
+    @Getter
     enum AlertButtons {
         ALERT("Click for JS Alert"),
         CONFIRM("Click for JS Confirm"),
@@ -64,10 +66,6 @@ public class AlertsPage extends BasePage {
 
         AlertButtons(String buttonText) {
             this.buttonText = buttonText;
-        }
-
-        public String getButtonText() {
-            return buttonText;
         }
     }
 }

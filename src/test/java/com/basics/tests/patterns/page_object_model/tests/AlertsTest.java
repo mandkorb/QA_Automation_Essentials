@@ -11,7 +11,7 @@ public class AlertsTest extends BaseTest {
     private AlertsPage alertsPage;
 
     @BeforeMethod
-    public void openAlertsPage(){
+    public void openAlertsPage() {
         alertsPage = new AlertsPage(driver);
         alertsPage.open();
     }
@@ -28,7 +28,7 @@ public class AlertsTest extends BaseTest {
     }
 
     @Test
-    public void clickJSAlertConfirm(){
+    public void clickJSAlertConfirm() {
         alertsPage.clickOnJSConfirm();
         String alertText = alertsPage.getAlertText();
         assertEquals(alertText, "I am a JS Confirm");
@@ -44,7 +44,7 @@ public class AlertsTest extends BaseTest {
     }
 
     @Test
-    public void clickJSPrompt(){
+    public void clickJSPrompt() {
         String promptMessage = "test";
 
         alertsPage.clickOnJSPrompt();
