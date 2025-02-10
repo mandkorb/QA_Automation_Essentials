@@ -1,5 +1,6 @@
 package com.basics.tests.patterns.page_object_model.tests;
 
+import com.basics.tests.config.Configuration;
 import com.basics.tests.patterns.page_object_model.base.BaseTest;
 import com.basics.tests.patterns.page_object_model.pages.LoginPage;
 import com.basics.tests.patterns.page_object_model.pages.SecurePage;
@@ -7,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class LoginTests extends BaseTest {
@@ -44,15 +44,17 @@ public class LoginTests extends BaseTest {
     @DataProvider(name = "validCredentials")
     public Object[][] provideValidLoginCredentials(){
         return new Object[][]{
-                {"tomsmith", "SuperSecretPassword!"}
+                {USERNAME, PASSWORD}
         };
     }
 
     @DataProvider(name = "invalidCredentials")
     public Object[][] provideInvalidLoginCredentials(){
         return new Object[][]{
-                {"", "SuperSecretPassword!", "Your username is invalid!"},
-                {"tomsmith", "", "Your password is invalid!"},
+                {USERNAME + "1", PASSWORD, "Your username is invalid!"},
+                {USERNAME, PASSWORD + "1", "Your password is invalid!"},
+                {USERNAME, "", "Your password is invalid!"},
+                {"", PASSWORD, "Your username is invalid!"},
                 {"", "", "Your username is invalid!"}
         };
     }
