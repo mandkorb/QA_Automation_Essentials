@@ -37,16 +37,20 @@ public abstract class BasePage {
         wait.until(elementToBeClickable(locator)).click();
     }
 
-    public void clickOnButtonByCssSelector(By locator) {
+    protected void clickOnButtonByCssSelector(By locator) {
         wait.until(elementToBeClickable(locator)).click();
     }
 
-    protected void waitForElementAppearance(WebElement element) {
-        wait.until(visibilityOf(element));
+    protected WebElement waitForElementAppearance(By by) {
+        return wait.until(visibilityOfElementLocated(by));
     }
 
-    protected void waitForElementClickable(WebElement element) {
-        wait.until(elementToBeClickable(element));
+    protected Boolean isElementDisappeared(By by) {
+        return wait.until(invisibilityOfElementLocated(by));
+    }
+
+    protected WebElement waitForElementClickable(By by) {
+        return wait.until(elementToBeClickable(by));
     }
 
     public void setWaitDurationInSeconds(int waitDuration) {
