@@ -14,15 +14,15 @@ import static org.hamcrest.Matchers.lessThan;
 public class BaseSpec {
     private static final String BASE_URL = Configuration.getProperty("reqres.url");
     private static final String API_PATH = Configuration.getProperty("reqres.api.path");
-    protected static RequestSpecification requestSpec;
-    protected static ResponseSpecification successResponseSpec;
-    protected static ResponseSpecification notFoundResponseSpec;
+    public static RequestSpecification requestSpec;
+    public static ResponseSpecification successResponseSpec;
+    public static ResponseSpecification notFoundResponseSpec;
 
     public BaseSpec() {
         requestSpec = new RequestSpecBuilder()
                 .setBaseUri(BASE_URL)
                 .setBasePath(API_PATH)
-                .setContentType("application/json")
+                .setContentType(ContentType.JSON)
                 .build();
 
         successResponseSpec = new ResponseSpecBuilder()
