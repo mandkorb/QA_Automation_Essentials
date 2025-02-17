@@ -1,10 +1,12 @@
 package api.tests;
 
-import api.responses.UserResponse;
-import api.responses.UsersListResponse;
+import api.models.requests.UserRegisterRequest;
+import api.models.responses.UserByIdResponse;
+import api.models.responses.UserRegisterResponse;
+import api.models.responses.UsersListResponse;
 import api.services.UserService;
-import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -22,15 +24,15 @@ public class UserServiceTest {
     }
 
     @Test
-    public void returnUserDataWhenUserExists2() {
-        UserResponse user = userService.getUserById(USER_ID, true);
+    public void returnUserDataWhenUserExists() {
+        UserByIdResponse user = userService.getUserById(USER_ID, true);
         assertEquals(user.getData().getId(), USER_ID);
         assertEquals(user.getData().getFirst_name(), USER_FIRST_NAME);
     }
 
     @Test
     public void returnEmptyResponseWhenUserDoesNotExist() {
-        UserResponse user = userService.getUserById(23, false);
+        UserByIdResponse user = userService.getUserById(23, false);
         assertTrue(user.isEmpty());
     }
 
@@ -44,5 +46,23 @@ public class UserServiceTest {
 
         assertTrue(usersList.areUserEmailsEndWithDomain(EXPECTED_DOMAIN));
         assertTrue(usersList.areAvatarsContainUserId());
+    }
+
+    @Test(dataProvider = "validRegisterCredentials")
+    public void returnUserIdAndTokenWhenUserCreated(String email, String password, int idExpected, String tokenExpected) {
+        UserRegisterRequest user = new UserRegisterRequest(email, password);
+        UserRegisterResponse userRegisterResponse = userService.registerUser(user);
+
+        assertNotNull(userRegisterResponse);
+        assertFalse(userRegisterResponse.getToken().isEmpty());
+        assertEquals(userRegisterResponse.getId(), idExpected);
+        assertEquals(userRegisterResponse.getToken(), tokenExpected);
+    }
+
+    @DataProvider(name = "validRegisterCredentials")
+    public Object[][] provideValidRegisterCredentials() {
+        return new Object[][]{
+                {"eve.holt@reqres.in", "pistol", 4, "QpwL5tke4Pnpja7X4"}
+        };
     }
 }
