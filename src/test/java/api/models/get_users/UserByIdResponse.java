@@ -1,6 +1,5 @@
 package api.models.get_users;
 
-import api.models.data.UserData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 

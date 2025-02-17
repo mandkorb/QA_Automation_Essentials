@@ -1,4 +1,4 @@
-package api.models.data;
+package api.models.get_users;
 
 import lombok.Getter;
 
