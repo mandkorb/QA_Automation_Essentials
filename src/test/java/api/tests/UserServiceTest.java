@@ -1,9 +1,11 @@
 package api.tests;
 
-import api.models.requests.UserRegisterRequest;
-import api.models.responses.UserByIdResponse;
-import api.models.responses.UserRegisterResponse;
-import api.models.responses.UsersListResponse;
+import api.models.register.invalid.UserRegisterInvalidRequest;
+import api.models.register.invalid.UserRegisterInvalidResponse;
+import api.models.register.valid.UserRegisterValidRequest;
+import api.models.get_users.UserByIdResponse;
+import api.models.register.valid.UserRegisterValidResponse;
+import api.models.get_users.UsersListResponse;
 import api.services.UserService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -49,20 +51,36 @@ public class UserServiceTest {
     }
 
     @Test(dataProvider = "validRegisterCredentials")
-    public void returnUserIdAndTokenWhenUserCreated(String email, String password, int idExpected, String tokenExpected) {
-        UserRegisterRequest user = new UserRegisterRequest(email, password);
-        UserRegisterResponse userRegisterResponse = userService.registerUser(user);
+    public void returnUserIdAndTokenWhenUserSuccessfulCreated(String email, String password, int idExpected, String tokenExpected) {
+        UserRegisterValidRequest user = new UserRegisterValidRequest(email, password);
+        UserRegisterValidResponse userRegisterValidResponse = userService.registerUser(user);
 
-        assertNotNull(userRegisterResponse);
-        assertFalse(userRegisterResponse.getToken().isEmpty());
-        assertEquals(userRegisterResponse.getId(), idExpected);
-        assertEquals(userRegisterResponse.getToken(), tokenExpected);
+        assertNotNull(userRegisterValidResponse);
+        assertFalse(userRegisterValidResponse.getToken().isEmpty());
+        assertEquals(userRegisterValidResponse.getId(), idExpected);
+        assertEquals(userRegisterValidResponse.getToken(), tokenExpected);
+    }
+
+    @Test(dataProvider = "invalidRegisterCredentials")
+    public void returnErrorMessageWhenUserUnsuccessfulCreated(String email, String errorMessage) {
+        UserRegisterInvalidRequest user = new UserRegisterInvalidRequest(email);
+        UserRegisterInvalidResponse userRegisterInvalidResponse = userService.attemptInvalidRegistration(user);
+
+        assertNotNull(userRegisterInvalidResponse);
+        assertEquals(userRegisterInvalidResponse.getError(), errorMessage);
     }
 
     @DataProvider(name = "validRegisterCredentials")
     public Object[][] provideValidRegisterCredentials() {
         return new Object[][]{
                 {"eve.holt@reqres.in", "pistol", 4, "QpwL5tke4Pnpja7X4"}
+        };
+    }
+
+    @DataProvider(name = "invalidRegisterCredentials")
+    public Object[][] provideInvalidRegisterCredentials() {
+        return new Object[][]{
+                {"sydney@fife", "Missing password"}
         };
     }
 }

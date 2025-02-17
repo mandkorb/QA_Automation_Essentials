@@ -1,11 +1,11 @@
-package api.models.requests;
+package api.models.register.valid;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class UserRegisterRequest {
+public class UserRegisterValidRequest {
     private String email;
     private String password;
 }

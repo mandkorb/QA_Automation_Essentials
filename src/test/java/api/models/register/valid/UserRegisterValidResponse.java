@@ -1,12 +1,11 @@
-package api.models.responses;
+package api.models.register.valid;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class UserRegisterResponse {
+public class UserRegisterValidResponse {
     private int id;
     private String token;
 }

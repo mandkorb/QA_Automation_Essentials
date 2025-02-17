@@ -17,6 +17,7 @@ public class BaseSpec {
     public static RequestSpecification requestSpec;
     public static ResponseSpecification successResponseSpec;
     public static ResponseSpecification notFoundResponseSpec;
+    public static ResponseSpecification badRequestResponseSpec;
 
     public BaseSpec() {
         requestSpec = new RequestSpecBuilder()
@@ -33,6 +34,12 @@ public class BaseSpec {
 
         notFoundResponseSpec = new ResponseSpecBuilder()
                 .expectStatusCode(404)
+                .expectContentType(ContentType.JSON)
+                .expectResponseTime(lessThan(5L), TimeUnit.SECONDS)
+                .build();
+
+        badRequestResponseSpec = new ResponseSpecBuilder()
+                .expectStatusCode(400)
                 .expectContentType(ContentType.JSON)
                 .expectResponseTime(lessThan(5L), TimeUnit.SECONDS)
                 .build();
