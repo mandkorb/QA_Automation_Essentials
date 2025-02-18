@@ -1,5 +1,6 @@
 package api.booker.base;
 
+import api.booker.utils.Auth;
 import config.Configuration;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -12,16 +13,22 @@ import java.util.concurrent.TimeUnit;
 import static org.hamcrest.Matchers.lessThan;
 
 public class BaseSpec {
-    private static final String BASE_URL = Configuration.getProperty("booker.url");
-    protected static final String USERNAME = Configuration.getProperty("booker.username");
-    protected static final String PASSWORD = Configuration.getProperty("booker.password");
-    protected static RequestSpecification requestSpec;
-    protected static ResponseSpecification successResponseSpec;
+    private final String baseUrl = Configuration.getProperty("booker.url");
+    protected final String username = Configuration.getProperty("booker.username");
+    protected final String password = Configuration.getProperty("booker.password");
+    protected final RequestSpecification requestSpec;
+    protected final RequestSpecification requestAuthSpec;
+    protected final ResponseSpecification successResponseSpec;
 
     public BaseSpec() {
         requestSpec = new RequestSpecBuilder()
-                .setBaseUri(BASE_URL)
+                .setBaseUri(baseUrl)
                 .setContentType(ContentType.JSON)
+                .build();
+
+        requestAuthSpec = new RequestSpecBuilder()
+                .addRequestSpecification(requestSpec)
+                .addHeader("Authorization", "Bearer " + Auth.getToken())
                 .build();
 
         successResponseSpec = new ResponseSpecBuilder()

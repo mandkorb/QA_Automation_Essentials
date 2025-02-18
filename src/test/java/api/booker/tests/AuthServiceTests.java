@@ -5,7 +5,7 @@ import api.booker.services.AuthService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.*;
 
 public class AuthServiceTests {
     private AuthService authService;
@@ -18,7 +18,6 @@ public class AuthServiceTests {
     @Test
     public void returnTokenWhenValidAuth() {
         TokenResponse token = authService.loginUser();
-        assertNotNull(token);
-        token.setToConfiguration();
+        assertTrue(token.isValid());
     }
 }
