@@ -1,7 +1,7 @@
-package api.tests;
+package api.reqres.tests;
 
-import api.models.resource.ResourceListResponse;
-import api.services.ResourceService;
+import api.reqres.models.resource.ResourceListResponse;
+import api.reqres.services.ResourceService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

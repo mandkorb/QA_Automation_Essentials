@@ -1,13 +1,13 @@
-package api.services;
+package api.reqres.services;
 
-import api.base.BaseSpec;
-import api.base.Endpoints;
-import api.models.register.invalid.UserRegisterInvalidRequest;
-import api.models.register.invalid.UserRegisterInvalidResponse;
-import api.models.register.valid.UserRegisterValidRequest;
-import api.models.get_users.UserByIdResponse;
-import api.models.register.valid.UserRegisterValidResponse;
-import api.models.get_users.UsersListResponse;
+import api.reqres.base.BaseSpec;
+import api.reqres.base.Endpoints;
+import api.reqres.models.register.invalid.UserRegisterInvalidRequest;
+import api.reqres.models.register.invalid.UserRegisterInvalidResponse;
+import api.reqres.models.register.valid.UserRegisterValidRequest;
+import api.reqres.models.get_users.UserByIdResponse;
+import api.reqres.models.register.valid.UserRegisterValidResponse;
+import api.reqres.models.get_users.UsersListResponse;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;

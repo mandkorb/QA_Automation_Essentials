@@ -22,4 +22,11 @@ public class Configuration {
         }
         return properties.getProperty(key);
     }
+
+    public static void setProperty(String key, String value) {
+        if (properties == null) {
+            throw new IllegalStateException("Configuration load failed!");
+        }
+        properties.setProperty(key, value);
+    }
 }

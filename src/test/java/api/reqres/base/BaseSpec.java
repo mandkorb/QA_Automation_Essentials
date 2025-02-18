@@ -1,4 +1,4 @@
-package api.base;
+package api.reqres.base;
 
 import config.Configuration;
 import io.restassured.builder.RequestSpecBuilder;
@@ -14,10 +14,10 @@ import static org.hamcrest.Matchers.lessThan;
 public class BaseSpec {
     private static final String BASE_URL = Configuration.getProperty("reqres.url");
     private static final String API_PATH = Configuration.getProperty("reqres.api.path");
-    public static RequestSpecification requestSpec;
-    public static ResponseSpecification successResponseSpec;
-    public static ResponseSpecification notFoundResponseSpec;
-    public static ResponseSpecification badRequestResponseSpec;
+    protected static RequestSpecification requestSpec;
+    protected static ResponseSpecification successResponseSpec;
+    protected static ResponseSpecification notFoundResponseSpec;
+    protected static ResponseSpecification badRequestResponseSpec;
 
     public BaseSpec() {
         requestSpec = new RequestSpecBuilder()

@@ -1,4 +1,4 @@
-package api.models.resource;
+package api.reqres.models.resource;
 
 import lombok.Getter;
 

@@ -1,12 +1,12 @@
-package api.tests;
+package api.reqres.tests;
 
-import api.models.register.invalid.UserRegisterInvalidRequest;
-import api.models.register.invalid.UserRegisterInvalidResponse;
-import api.models.register.valid.UserRegisterValidRequest;
-import api.models.get_users.UserByIdResponse;
-import api.models.register.valid.UserRegisterValidResponse;
-import api.models.get_users.UsersListResponse;
-import api.services.UserService;
+import api.reqres.models.register.invalid.UserRegisterInvalidRequest;
+import api.reqres.models.register.invalid.UserRegisterInvalidResponse;
+import api.reqres.models.register.valid.UserRegisterValidRequest;
+import api.reqres.models.get_users.UserByIdResponse;
+import api.reqres.models.register.valid.UserRegisterValidResponse;
+import api.reqres.models.get_users.UsersListResponse;
+import api.reqres.services.UserService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package api.models.register.invalid;
+package api.reqres.models.register.invalid;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

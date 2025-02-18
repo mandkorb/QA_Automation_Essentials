@@ -1,8 +1,8 @@
-package api.services;
+package api.reqres.services;
 
-import api.base.BaseSpec;
-import api.base.Endpoints;
-import api.models.resource.ResourceListResponse;
+import api.reqres.base.BaseSpec;
+import api.reqres.base.Endpoints;
+import api.reqres.models.resource.ResourceListResponse;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;

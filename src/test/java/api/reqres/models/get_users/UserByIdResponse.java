@@ -1,4 +1,4 @@
-package api.models.get_users;
+package api.reqres.models.get_users;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
