@@ -17,6 +17,9 @@ public abstract class BasePage {
     private final String baseUrl;
 
     public BasePage(WebDriver driver) {
+        if (driver == null) {
+            throw new IllegalStateException("Driver is not initialized");
+        }
         this.driver = driver;
         baseUrl = Configuration.getProperty("heroku.url");
         setWaitDurationInSeconds(DEFAULT_WAIT_DURATION);
