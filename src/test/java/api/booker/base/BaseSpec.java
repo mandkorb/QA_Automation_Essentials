@@ -20,7 +20,6 @@ public class BaseSpec {
     protected static final String PASSWORD = Configuration.getProperty("booker.password");
     protected RequestSpecification requestAuthSpec;
     private String token;
-
     protected static final RequestSpecification requestSpec = new RequestSpecBuilder()
                 .setBaseUri(BASE_URL)
                 .setContentType(ContentType.JSON)
