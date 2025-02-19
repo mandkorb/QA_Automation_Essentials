@@ -50,11 +50,11 @@ public class LoginTests extends BaseTest {
     @DataProvider(name = "invalidCredentials")
     public Object[][] provideInvalidLoginCredentials() {
         return new Object[][]{
-                {USERNAME + "1", PASSWORD, "Your username is invalid!"},
-                {USERNAME, PASSWORD + "1", "Your password is invalid!"},
-                {USERNAME, "", "Your password is invalid!"},
-                {"", PASSWORD, "Your username is invalid!"},
-                {"", "", "Your username is invalid!"}
+                {USERNAME + "1", PASSWORD, "Your USERNAME is invalid!"},
+                {USERNAME, PASSWORD + "1", "Your PASSWORD is invalid!"},
+                {USERNAME, "", "Your PASSWORD is invalid!"},
+                {"", PASSWORD, "Your USERNAME is invalid!"},
+                {"", "", "Your USERNAME is invalid!"}
         };
     }
 }

@@ -14,7 +14,7 @@ public class AuthService extends BaseSpec {
     }
 
     private Response createSession() {
-        UserAuthRequest user = new UserAuthRequest(username, password);
+        UserAuthRequest user = new UserAuthRequest(USERNAME, PASSWORD);
         return given()
                 .spec(requestSpec)
                 .body(user)
