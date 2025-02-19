@@ -1,6 +1,5 @@
-package api.booker.models.auth;
+package api.booker.modules.auth.models;
 
-import config.Configuration;
 import lombok.Getter;
 
 @Getter

@@ -1,7 +1,7 @@
 package api.booker.base;
 
-import api.booker.models.auth.TokenResponse;
-import api.booker.models.auth.UserAuthRequest;
+import api.booker.modules.auth.models.TokenResponse;
+import api.booker.modules.auth.models.UserAuthRequest;
 import config.Configuration;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;

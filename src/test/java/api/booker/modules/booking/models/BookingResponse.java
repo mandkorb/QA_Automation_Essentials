@@ -1,4 +1,4 @@
-package api.booker.models.booking;
+package api.booker.modules.booking.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

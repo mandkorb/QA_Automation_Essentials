@@ -1,8 +1,8 @@
-package api.booker.services;
+package api.booker.modules.booking;
 
 import api.booker.base.BaseSpec;
 import api.booker.base.Endpoints;
-import api.booker.models.booking.BookingResponse;
+import api.booker.modules.booking.models.BookingResponse;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;

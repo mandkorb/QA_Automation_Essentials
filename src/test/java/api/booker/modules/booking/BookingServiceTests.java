@@ -1,7 +1,6 @@
-package api.booker.tests;
+package api.booker.modules.booking;
 
-import api.booker.models.booking.BookingResponse;
-import api.booker.services.BookingService;
+import api.booker.modules.booking.models.BookingResponse;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

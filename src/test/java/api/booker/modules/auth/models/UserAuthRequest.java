@@ -1,4 +1,4 @@
-package api.booker.models.auth;
+package api.booker.modules.auth.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

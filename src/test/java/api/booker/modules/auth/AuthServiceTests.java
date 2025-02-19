@@ -1,7 +1,6 @@
-package api.booker.tests;
+package api.booker.modules.auth;
 
-import api.booker.models.auth.TokenResponse;
-import api.booker.services.AuthService;
+import api.booker.modules.auth.models.TokenResponse;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

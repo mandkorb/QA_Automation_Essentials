@@ -1,9 +1,9 @@
-package api.booker.services;
+package api.booker.modules.auth;
 
 import api.booker.base.BaseSpec;
 import api.booker.base.Endpoints;
-import api.booker.models.auth.TokenResponse;
-import api.booker.models.auth.UserAuthRequest;
+import api.booker.modules.auth.models.TokenResponse;
+import api.booker.modules.auth.models.UserAuthRequest;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
