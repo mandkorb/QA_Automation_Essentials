@@ -8,6 +8,8 @@ import org.testng.annotations.Test;
 
 public class DropdownTests extends BaseTest {
     private DropdownPage dropdownPage;
+    private static final String FIRST_OPTION_TEXT = "Option 1";
+    private static final String SECOND_OPTION_TEXT = "Option 2";
 
     @BeforeMethod
     public void openDropdownPage() {
@@ -18,9 +20,9 @@ public class DropdownTests extends BaseTest {
     @Test
     public void changeDropdownOptions() {
         dropdownPage.selectOptionByIndex(1);
-        Assert.assertEquals(dropdownPage.getCurrentOptionText(), DropdownPage.FIRST_OPTION_TEXT);
+        Assert.assertEquals(dropdownPage.getCurrentOptionText(), FIRST_OPTION_TEXT);
 
         dropdownPage.selectOptionByValue("2");
-        Assert.assertEquals(dropdownPage.getCurrentOptionText(), DropdownPage.SECOND_OPTION_TEXT);
+        Assert.assertEquals(dropdownPage.getCurrentOptionText(), SECOND_OPTION_TEXT);
     }
 }

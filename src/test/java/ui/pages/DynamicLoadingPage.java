@@ -1,21 +1,29 @@
 package ui.pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class DynamicLoadingPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/dynamic_loading";
-    private static final String HIDDEN_ELEMENT_PAGE_SLUG = "/dynamic_loading/1";
-    private static final String AFTER_RENDERED_PAGE_SLUG = "/dynamic_loading/2";
     public static final String DYNAMIC_ELEMENT_TEXT = "Hello World!";
 
-    private final By example1Link = By.cssSelector("a[href='%s']".formatted(HIDDEN_ELEMENT_PAGE_SLUG));
-    private final By example2Link = By.cssSelector("a[href='%s']".formatted(AFTER_RENDERED_PAGE_SLUG));
-    private final By startButton = By.cssSelector("#start button");
-    private final By dynamicElement = By.cssSelector("#finish h4");
-    private final By loader = By.cssSelector("#loading");
+    @FindBy(css = "#start button")
+    private WebElement startButton;
+
+    @FindBy(css = "a[href='/dynamic_loading/1']")
+    private WebElement example1Link;
+
+    @FindBy(css = "a[href='/dynamic_loading/2']")
+    private WebElement example2Link;
+
+    @FindBy(css = "#finish h4")
+    private WebElement dynamicElement;
+
+    @FindBy(css = "#loading")
+    private WebElement loader;
 
     public DynamicLoadingPage(WebDriver driver) {
         super(driver);
@@ -27,15 +35,15 @@ public class DynamicLoadingPage extends BasePage {
     }
 
     public void openHiddenDynamicElementPage() {
-        driver.findElement(example1Link).click();
+        example1Link.click();
     }
 
     public void openRenderedAfterLoadingDynamicElementPage() {
-        driver.findElement(example2Link).click();
+        example2Link.click();
     }
 
     public void clickOnStartButton() {
-        driver.findElement(startButton).click();
+        startButton.click();
     }
 
     public String getElementText() {

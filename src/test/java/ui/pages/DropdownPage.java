@@ -1,16 +1,17 @@
 package ui.pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class DropdownPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/dropdown";
-    private final By dropdown = By.id("dropdown");
-    public static final String FIRST_OPTION_TEXT = "Option 1";
-    public static final String SECOND_OPTION_TEXT = "Option 2";
+
+    @FindBy(id = "dropdown")
+    private WebElement dropdown;
 
     public DropdownPage(WebDriver driver) {
         super(driver);
@@ -22,7 +23,7 @@ public class DropdownPage extends BasePage {
     }
 
     private Select getDropdown() {
-        return new Select(driver.findElement(dropdown));
+        return new Select(dropdown);
     }
 
     public void selectOptionByIndex(int index) {

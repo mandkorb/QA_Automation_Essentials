@@ -1,14 +1,17 @@
 package ui.pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
 import lombok.Getter;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class FramesPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/nested_frames";
-    private final By frameContentLocator = By.tagName("body");
+
+    @FindBy(tagName = "body")
+    private WebElement frameContentLocator;
 
     public FramesPage(WebDriver driver) {
         super(driver);
@@ -28,7 +31,7 @@ public class FramesPage extends BasePage {
     }
 
     public String getFrameContent() {
-        return driver.findElement(frameContentLocator).getText().trim();
+        return frameContentLocator.getText().trim();
     }
 
     @Getter

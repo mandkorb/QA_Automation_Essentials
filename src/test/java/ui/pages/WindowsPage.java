@@ -1,5 +1,7 @@
 package ui.pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -12,8 +14,12 @@ public class WindowsPage extends BasePage {
     private static final String NEW_PAGE_TITLE = "New Window";
     private static final String NEW_PAGE_SLUG = "/windows/new";
     private static final String NEW_PAGE_CONTENT = "New Window";
-    private final By newPageLocator = By.cssSelector("a[href='/windows/new'][target='_blank']");
-    private final By newPageContent = By.cssSelector(".example>h3");
+
+    @FindBy(css = "a[href='/windows/new'][target='_blank']")
+    private WebElement newPageLocator;
+
+    @FindBy(css = ".example>h3")
+    private WebElement newPageContent;
 
     public WindowsPage(WebDriver driver) {
         super(driver);
@@ -25,7 +31,7 @@ public class WindowsPage extends BasePage {
     }
 
     public void openNewWindow() {
-        driver.findElement(newPageLocator).click();
+        newPageLocator.click();
     }
 
     public void switchToWindow(Windows window) {
@@ -43,7 +49,7 @@ public class WindowsPage extends BasePage {
     }
 
     public boolean isNewWindowContentCorrect() {
-        return driver.findElement(newPageContent).getText().contains(NEW_PAGE_CONTENT);
+        return newPageContent.getText().contains(NEW_PAGE_CONTENT);
     }
 
     public void closeNewWindow() {

@@ -37,7 +37,7 @@ public class LoginTests extends BaseTest {
         loginPage.enterPasswordField(password);
         loginPage.clickOnSubmitButton();
         assertTrue(loginPage.isErrorFlashPresent());
-        assertTrue(loginPage.getFlashTest().contains(errorMessage));
+        assertTrue(loginPage.getFlashTest().contains(errorMessage.toLowerCase()));
     }
 
     @DataProvider(name = "validCredentials")

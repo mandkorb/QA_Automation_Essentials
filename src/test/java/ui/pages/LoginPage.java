@@ -1,5 +1,7 @@
 package ui.pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,10 +9,21 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/login";
-    private final By usernameField = By.cssSelector("#username");
-    private final By passwordField = By.cssSelector("#password");
-    private final By submitButton = By.cssSelector("button[type='submit']");
-    private final By errorFlash = By.cssSelector("#flash.error");
+
+    @FindBy(id = "username")
+    private WebElement usernameField;
+
+    @FindBy(id = "password")
+    private WebElement passwordField;
+
+    @FindBy(css = "button[type='submit']")
+    private WebElement submitButton;
+
+    @FindBy(id = "flash")
+    private WebElement defaultFlash;
+
+    @FindBy(css = "#flash.error")
+    private WebElement errorFlash;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -22,24 +35,23 @@ public class LoginPage extends BasePage {
     }
 
     public void enterUsernameField(String value) {
-        driver.findElement(usernameField).sendKeys(value);
+        usernameField.sendKeys(value);
     }
 
     public void enterPasswordField(String value) {
-        driver.findElement(passwordField).sendKeys(value);
+        passwordField.sendKeys(value);
     }
 
     public SecurePage clickOnSubmitButton() {
-        clickOnButtonByCssSelector(submitButton);
+        submitButton.click();
         return new SecurePage(driver);
     }
 
     public boolean isErrorFlashPresent() {
-        return driver.findElement(errorFlash).isDisplayed();
+        return errorFlash.isDisplayed();
     }
 
     public String getFlashTest() {
-        return driver.findElement(By.cssSelector("#flash")).getText();
+        return defaultFlash.getText().toLowerCase();
     }
-
 }

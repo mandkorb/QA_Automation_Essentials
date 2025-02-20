@@ -1,5 +1,6 @@
 package ui.pages;
 
+import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +11,18 @@ import java.util.List;
 public class SecurePage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/secure";
-    private final By successFlash = By.cssSelector("#flash.success");
-    private final By header = By.cssSelector("h2");
-    private final By description = By.cssSelector(".subheader");
-    private final By signOutButton = By.cssSelector("[class$=signout]");
+
+    @FindBy(css = "#flash.success")
+    private WebElement successFlash;
+
+    @FindBy(css = "h2")
+    private WebElement header;
+
+    @FindBy(css = ".subheader")
+    private WebElement description;
+
+    @FindBy(css = "[class$=signout]")
+    private WebElement signOutButton;
 
     public SecurePage(WebDriver driver) {
         super(driver);
@@ -25,9 +34,8 @@ public class SecurePage extends BasePage {
     }
 
     public boolean isAllSuccessElementsAvailable() {
-        List<By> elements = List.of(successFlash, header, description, signOutButton);
-        for (By locator : elements) {
-            WebElement element = driver.findElement(locator);
+        List<WebElement> elements = List.of(successFlash, header, description, signOutButton);
+        for (WebElement element : elements) {
             if (!element.isDisplayed()) {
                 return false;
             }
@@ -36,6 +44,6 @@ public class SecurePage extends BasePage {
     }
 
     public void logout() {
-        driver.findElement(signOutButton).click();
+        signOutButton.click();
     }
 }
