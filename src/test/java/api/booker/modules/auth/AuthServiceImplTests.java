@@ -1,22 +1,23 @@
 package api.booker.modules.auth;
 
+import api.booker.base.BaseApiTest;
 import api.booker.modules.auth.models.TokenResponse;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class AuthServiceTests {
-    private AuthService authService;
+public class AuthServiceImplTests extends BaseApiTest {
+    private AuthServiceImpl authServiceImpl;
 
     @BeforeClass
     public void setup() {
-        authService = new AuthService();
+        authServiceImpl = new AuthServiceImpl();
     }
 
     @Test
     public void returnTokenWhenValidAuth() {
-        TokenResponse token = authService.loginUser();
+        TokenResponse token = authServiceImpl.loginUser();
         assertTrue(token.isValid());
     }
 }

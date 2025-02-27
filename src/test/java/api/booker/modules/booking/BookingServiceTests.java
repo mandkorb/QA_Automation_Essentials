@@ -1,5 +1,6 @@
 package api.booker.modules.booking;
 
+import api.booker.base.BaseApiTest;
 import api.booker.modules.booking.models.BookingCreateResponse;
 import api.booker.modules.booking.models.BookingDates;
 import api.booker.modules.booking.models.BookingRequest;
@@ -10,7 +11,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class BookingServiceTests {
+public class BookingServiceTests extends BaseApiTest {
     private BookingService bookingService;
     private final int BOOKING_ID = 1;
 
@@ -46,8 +47,8 @@ public class BookingServiceTests {
     }
 
     @DataProvider(name = "validBookingData")
-    public Object[][] provideValidBookingData(){
-        return new Object[][] {
+    public Object[][] provideValidBookingData() {
+        return new Object[][]{
                 {"Jim", "Browns", 111, true, "2018-01-01", "2019-01-01", "Breakfest"},
                 {"", "", 0, false, "2018-01-01", "2019-01-01", ""},
         };
