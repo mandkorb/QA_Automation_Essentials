@@ -11,18 +11,18 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class BookingServiceTests extends BaseApiTest {
-    private BookingService bookingService;
+public class BookingServiceImplTests extends BaseApiTest {
+    private BookingServiceImpl bookingServiceImpl;
     private final int BOOKING_ID = 1;
 
     @BeforeClass
     public void setup() {
-        bookingService = new BookingService();
+        bookingServiceImpl = new BookingServiceImpl();
     }
 
     @Test
     public void returnBookingsDataById() {
-        BookingData booking = bookingService.getBookingById(BOOKING_ID);
+        BookingData booking = bookingServiceImpl.getBookingById(BOOKING_ID);
         assertNotNull(booking);
     }
 
@@ -41,7 +41,7 @@ public class BookingServiceTests extends BaseApiTest {
                 .bookingDates(bookingDates)
                 .additionalNeeds(additionalNeeds)
                 .build();
-        BookingCreateResponse response = bookingService.createBooking(booking);
+        BookingCreateResponse response = bookingServiceImpl.createBooking(booking);
         assertNotNull(response);
         assertTrue(response.areResponseDataEqualsToGiven(booking));
     }

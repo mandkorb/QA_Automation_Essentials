@@ -2,7 +2,6 @@ package api.booker.modules.auth.mock;
 
 import api.booker.modules.auth.AuthService;
 import api.booker.modules.auth.models.TokenResponse;
-import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
