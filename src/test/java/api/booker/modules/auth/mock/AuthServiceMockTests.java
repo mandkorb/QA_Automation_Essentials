@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static org.mockito.Mockito.*;
 
 public class AuthServiceMockTests {
-    @Test
+    @Test(groups = "test123")
     public void testLoginMock() {
         AuthService mockService = mock(AuthService.class);
 
