@@ -47,11 +47,11 @@ public class DynamicLoadingPage extends BasePage {
     }
 
     public String getElementText() {
-        return waitForElementAppearance(dynamicElement).getText();
+        return waitForElementsAppearance(dynamicElement).getText();
     }
 
     public boolean isLoadingPresented() {
-        return waitForElementAppearance(loader).isDisplayed();
+        return waitForElementsAppearance(loader).isDisplayed();
     }
 
     public boolean isLoadingDisappeared() {

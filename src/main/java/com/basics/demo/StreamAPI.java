@@ -5,8 +5,7 @@ import java.util.List;
 
 public class StreamAPI {
     public static void main(String[] args) {
-        List<String> names = Arrays.asList("John", "Alice", "Bob", "John", "Charlie");
-
+        List<String> names = List.of("John", "Alice", "Bob", "John", "Charlie");
         System.out.println("Original list: " + names);
 
         System.out.println("Filtered (starts with 'J'): " +

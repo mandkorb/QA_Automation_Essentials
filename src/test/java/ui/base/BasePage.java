@@ -2,12 +2,14 @@ package ui.base;
 
 import config.Configuration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.Objects;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
@@ -40,7 +42,19 @@ public abstract class BasePage {
         wait.until(elementToBeClickable(locator)).click();
     }
 
-    protected WebElement waitForElementAppearance(WebElement element) {
+    protected boolean areAllElementsVisible(WebElement... elements) {
+        return Arrays.stream(elements)
+                .allMatch(element -> {
+                    try {
+                        wait.until(visibilityOf(element));
+                        return true;
+                    } catch (TimeoutException e) {
+                        return false;
+                    }
+                });
+    }
+
+    protected WebElement waitForElementsAppearance(WebElement element) {
         return wait.until(visibilityOf(element));
     }
 
