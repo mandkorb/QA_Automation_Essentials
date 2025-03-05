@@ -1,24 +1,21 @@
 package ui.pages;
 
 import config.Configuration;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
+import ui.base.TestFile;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
-import java.util.UUID;
+
 
 public class UploadPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/upload";
     private static final String DOWNLOAD_PAGE_SLUG = "/download";
-    private File file;
+    private TestFile file;
 
     @FindBy(id = "file-upload")
     private WebElement uploadInput;
@@ -41,8 +38,13 @@ public class UploadPage extends BasePage {
         return PAGE_SLUG;
     }
 
+    public File getFile() {
+        return file.getFile();
+    }
+
     public void uploadFile() {
-        uploadInput.sendKeys(generateFile().getAbsolutePath());
+        file = new TestFile();
+        uploadInput.sendKeys(file.getFile().getAbsolutePath());
         submitButton.click();
     }
 
@@ -52,7 +54,7 @@ public class UploadPage extends BasePage {
 
     public boolean isUploadedFileNameEqualsToOriginal() {
         String uploadedFileText = uploadedFilePanel.getText();
-        return file.getName().equals(uploadedFileText);
+        return file.getFile().getName().equals(uploadedFileText);
     }
 
     public void openDownloadPage() {
@@ -60,23 +62,6 @@ public class UploadPage extends BasePage {
     }
 
     public boolean isUploadedFileInTheList() {
-        return driver.findElement(By.linkText(file.getName())).isDisplayed();
-    }
-
-    private File generateFile() {
-        try {
-            File template = new File(Objects.requireNonNull(getClass().getClassLoader().getResource("textFileTemplate.txt")).getFile());
-            if (!template.exists()) {
-                throw new RuntimeException("Template file not found: " + template.getPath());
-            }
-            String baseName = FilenameUtils.getBaseName(template.getName());
-            String extension = FilenameUtils.getExtension(template.getName());
-            file = File.createTempFile(baseName + "_" + UUID.randomUUID(), "." + extension);
-            FileUtils.copyFile(template, file);
-            file.deleteOnExit();
-            return file;
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to generate file: " + e.getMessage(), e);
-        }
+        return driver.findElement(By.linkText(file.getFile().getName())).isDisplayed();
     }
 }
