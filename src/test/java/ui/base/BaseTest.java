@@ -11,6 +11,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public abstract class BaseTest {
     protected static final String USERNAME = Configuration.getProperty("heroku.username");
     protected static final String PASSWORD = Configuration.getProperty("heroku.password");
     public static final String DOWNLOAD_DIR_PATH = "src/test/resources/downloads";
-    private static final File DOWNLOAD_DIR = new File(DOWNLOAD_DIR_PATH);
+    public static final File DOWNLOAD_DIR = new File(DOWNLOAD_DIR_PATH);
 
     @BeforeClass
     public void setupSuite() {

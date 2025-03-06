@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
 import ui.base.TestFile;
 
-import java.io.File;
-
 
 public class UploadPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
@@ -38,12 +36,8 @@ public class UploadPage extends BasePage {
         return PAGE_SLUG;
     }
 
-    public File getFile() {
-        return file.getFile();
-    }
-
-    public void uploadFile() {
-        file = new TestFile();
+    public void uploadFile(TestFile file) {
+        this.file = file;
         uploadInput.sendKeys(file.getFile().getAbsolutePath());
         submitButton.click();
     }

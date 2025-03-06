@@ -6,16 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
-import ui.base.BaseTest;
-
-import java.io.File;
+import ui.base.TestFile;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 public class DownloadPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
     private static final String PAGE_SLUG = "/download";
-    private File file;
+    private TestFile file;
 
     @FindBy(xpath = "//h3[text()='File Downloader']")
     private WebElement header;
@@ -24,31 +22,25 @@ public class DownloadPage extends BasePage {
         super(driver);
     }
 
-    public void setFile(File file) {
-        this.file = file;
-    }
-
     @Override
     protected String getPageSlug() {
         return PAGE_SLUG;
     }
 
-    public void downloadFile() {
-        wait.until(elementToBeClickable(By.linkText(file.getName()))).click();
+    public void downloadFile(TestFile file) {
+        this.file = file;
+        wait.until(elementToBeClickable(By.linkText(file.getFile().getName()))).click();
     }
 
     public boolean isFileDownloaded() {
         try {
-            return file.exists();
+            return file.getFile().exists();
         } catch (TimeoutException e) {
             return false;
         }
     }
 
     public boolean deleteFileFromDownloads() {
-        if (file.exists()) {
-            return file.delete();
-        }
-        return false;
+        return file.deleteFilesFromDir();
     }
 }
