@@ -50,7 +50,7 @@ public class AlertsTest extends BaseTest {
         alertsPage.clickOnJSPrompt();
         alertsPage.dismissAlert();
         String resultMessage = alertsPage.getResultMessage();
-        assertEquals(resultMessage, "You entered: nu");
+        assertEquals(resultMessage, "You entered: null");
 
         alertsPage.clickOnButtonByText("Click for JS Prompt");
         alertsPage.sendKeysToAlert(promptMessage);

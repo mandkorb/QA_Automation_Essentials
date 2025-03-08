@@ -1,6 +1,10 @@
 package com.basics.demo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Arrays {
+    private static final Logger logger = LoggerFactory.getLogger(Arrays.class);
 
     // Demonstrates basic array operations
     public static void arrayOperations() {
@@ -8,15 +12,15 @@ public class Arrays {
 
         // Sort the array
         java.util.Arrays.sort(numbers);
-        System.out.println("Sorted array: " + java.util.Arrays.toString(numbers));
+        logger.info("Sorted array: {}", java.util.Arrays.toString(numbers));
 
         // Search for an element using binary search
         int index = java.util.Arrays.binarySearch(numbers, 8);
-        System.out.println("Index of 8: " + index);
+        logger.info("Index of 8: {}", index);
 
         // Fill the array with a specific value
         java.util.Arrays.fill(numbers, 0);
-        System.out.println("Array after filling with 0: " + java.util.Arrays.toString(numbers));
+        logger.info("Array after filling with 0: {}", java.util.Arrays.toString(numbers));
     }
 
     // Demonstrates basic matrix (2D array) operations
@@ -28,16 +32,16 @@ public class Arrays {
         };
 
         // Print the matrix
-        System.out.println("Matrix:");
+        logger.info("Matrix:");
         for (int[] row : matrix) {
-            System.out.println(java.util.Arrays.toString(row));
+            logger.info("{}", java.util.Arrays.toString(row));
         }
 
         // Transpose the matrix
         int[][] transposed = transposeMatrix(matrix);
-        System.out.println("Transposed Matrix:");
+        logger.info("Transposed Matrix:");
         for (int[] row : transposed) {
-            System.out.println(java.util.Arrays.toString(row));
+            logger.info("{}", java.util.Arrays.toString(row));
         }
     }
 
@@ -56,10 +60,10 @@ public class Arrays {
     }
 
     public static void main(String[] args) {
-        System.out.println("Array Operations:");
+        logger.info("Array Operations:");
         arrayOperations();
 
-        System.out.println("\nMatrix Operations:");
+        logger.info("Matrix Operations:");
         matrixOperations();
     }
 }

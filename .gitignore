@@ -56,6 +56,9 @@ drivers
 .allure
 allure-results
 
+# VSCode
+.vscode
+
 # Test spaces
 src/main/java/playground
 src/test/java/playground
