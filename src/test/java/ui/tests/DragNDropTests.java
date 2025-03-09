@@ -18,8 +18,9 @@ public class DragNDropTests extends BaseTest {
     }
 
     @Test
-    public void dragAndDrop() {
+    public void dragAndDrop() throws InterruptedException {
         assertTrue(dragNDropPage.isPageOpened());
         dragNDropPage.dragAndDrop();
+        assertTrue(dragNDropPage.isDragAndDropSuccessful());
     }
 }
