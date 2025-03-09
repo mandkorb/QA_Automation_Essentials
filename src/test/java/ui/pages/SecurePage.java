@@ -2,7 +2,6 @@ package ui.pages;
 
 import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -31,6 +30,11 @@ public class SecurePage extends BasePage {
     @Override
     protected String getPageSlug() {
         return PAGE_SLUG;
+    }
+
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
     }
 
     public boolean isAllSuccessElementsAvailable() {

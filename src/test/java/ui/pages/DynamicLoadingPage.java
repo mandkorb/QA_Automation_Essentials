@@ -34,6 +34,11 @@ public class DynamicLoadingPage extends BasePage {
         return PAGE_SLUG;
     }
 
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
+    }
+
     public void openHiddenDynamicElementPage() {
         example1Link.click();
     }

@@ -27,6 +27,11 @@ public class DownloadPage extends BasePage {
         return PAGE_SLUG;
     }
 
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
+    }
+
     public void downloadFile(TestFile file) {
         this.file = file;
         wait.until(elementToBeClickable(By.linkText(file.getFile().getName()))).click();

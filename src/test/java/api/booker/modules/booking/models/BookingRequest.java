@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.util.List;
 
 @Getter
 @Builder
@@ -13,7 +12,7 @@ import java.util.List;
 public class BookingRequest {
     @JsonProperty("firstname")
     private String firstName;
-    @JsonProperty("lastname")
+    @JsonProperty("lastname")   
     private String lastName;
     @JsonProperty("totalprice")
     private int totalPrice;

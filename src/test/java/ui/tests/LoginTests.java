@@ -20,14 +20,15 @@ public class LoginTests extends BaseTest {
 
     @Test(dataProvider = "validCredentials")
     public void loginWithValidCredentials(String usernameValue, String password) {
+        assertTrue(loginPage.isPageOpened());
         loginPage.open();
         loginPage.enterUsernameField(usernameValue);
         loginPage.enterPasswordField(password);
         SecurePage securePage = loginPage.clickOnSubmitButton();
-        assertTrue(securePage.atPage());
+        assertTrue(securePage.isPageOpened());
         assertTrue(securePage.isAllSuccessElementsAvailable());
         securePage.logout();
-        assertTrue(loginPage.atPage());
+        assertTrue(loginPage.isPageOpened());
     }
 
     @Test(dataProvider = "invalidCredentials")

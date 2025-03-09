@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
 import lombok.Getter;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
@@ -28,6 +27,11 @@ public class WindowsPage extends BasePage {
     @Override
     protected String getPageSlug() {
         return PAGE_SLUG;
+    }
+
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
     }
 
     public void openNewWindow() {

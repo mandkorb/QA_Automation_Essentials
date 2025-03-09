@@ -29,11 +29,16 @@ public class UploadPage extends BasePage {
 
     public UploadPage(WebDriver driver) {
         super(driver);
-    }
+    }   
 
     @Override
     protected String getPageSlug() {
         return PAGE_SLUG;
+    }
+
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
     }
 
     public void uploadFile(TestFile file) {

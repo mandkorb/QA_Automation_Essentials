@@ -29,12 +29,14 @@ public abstract class BasePage {
 
     protected abstract String getPageSlug();
 
-    public void open() {
-        driver.get(baseUrl + getPageSlug());
+    protected abstract String getPageTitle();
+
+    public boolean isPageOpened() {
+        return wait.until(webDriver -> webDriver.getTitle().contains(getPageTitle()) && webDriver.getCurrentUrl().equals(baseUrl + getPageSlug()));
     }
 
-    public boolean atPage() {
-        return wait.until(urlContains(getPageSlug()));
+    public void open() {
+        driver.get(baseUrl + getPageSlug());
     }
 
     public void clickOnButtonByText(String buttonText) {

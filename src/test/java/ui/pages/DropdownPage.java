@@ -22,6 +22,11 @@ public class DropdownPage extends BasePage {
         return PAGE_SLUG;
     }
 
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
+    }
+
     private Select getDropdown() {
         return new Select(dropdown);
     }

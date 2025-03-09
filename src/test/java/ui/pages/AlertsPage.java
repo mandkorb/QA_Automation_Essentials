@@ -20,6 +20,11 @@ public class AlertsPage extends BasePage {
         return PAGE_SLUG;
     }
 
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
+    }
+
     public void clickOnJSAlert() {
         clickOnButtonByText(AlertButtons.ALERT.getButtonText());
     }

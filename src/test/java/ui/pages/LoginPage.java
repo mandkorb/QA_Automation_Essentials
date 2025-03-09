@@ -3,7 +3,6 @@ package ui.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
@@ -32,6 +31,11 @@ public class LoginPage extends BasePage {
     @Override
     protected String getPageSlug() {
         return PAGE_SLUG;
+    }
+
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
     }
 
     public void enterUsernameField(String value) {

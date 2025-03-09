@@ -22,6 +22,11 @@ public class FramesPage extends BasePage {
         return PAGE_SLUG;
     }
 
+    @Override
+    protected String getPageTitle() {
+        return PAGE_TITLE;
+    }
+
     public void switchToFrame(Frames frame) {
         driver.switchTo().defaultContent();
         driver.switchTo().frame(frame.getPlacement());

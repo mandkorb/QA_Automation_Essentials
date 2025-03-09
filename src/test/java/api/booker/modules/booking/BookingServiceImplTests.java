@@ -13,7 +13,7 @@ import static org.testng.Assert.*;
 
 public class BookingServiceImplTests extends BaseApiTest {
     private BookingServiceImpl bookingServiceImpl;
-    private final int BOOKING_ID = 1;
+    private final int bookingId = 1;
 
     @BeforeClass
     public void setup() {
@@ -22,7 +22,7 @@ public class BookingServiceImplTests extends BaseApiTest {
 
     @Test
     public void returnBookingsDataById() {
-        BookingData booking = bookingServiceImpl.getBookingById(BOOKING_ID);
+        BookingData booking = bookingServiceImpl.getBookingById(bookingId);
         assertNotNull(booking);
     }
 

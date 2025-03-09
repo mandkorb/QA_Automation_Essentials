@@ -18,11 +18,11 @@ public class AlertsTest extends BaseTest {
 
     @Test
     public void clickJSAlert() {
+        assertTrue(alertsPage.isPageOpened());
         alertsPage.clickOnJSAlert();
         String alertText = alertsPage.getAlertText();
         assertEquals(alertText, "I am a JS Alert");
         alertsPage.acceptAlert();
-        assertTrue(alertsPage.atPage());
         String resultMessage = alertsPage.getResultMessage();
         assertEquals(resultMessage, "You successfully clicked an alert");
     }

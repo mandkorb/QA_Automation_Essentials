@@ -23,6 +23,6 @@ public class WindowsTests extends BaseTest {
         Assert.assertTrue(windowsPage.isNewWindowContentCorrect());
         windowsPage.closeNewWindow();
         windowsPage.switchToWindow(WindowsPage.Windows.DEFAULT);
-        windowsPage.atPage();
+        Assert.assertTrue(windowsPage.isPageOpened());
     }
 }
