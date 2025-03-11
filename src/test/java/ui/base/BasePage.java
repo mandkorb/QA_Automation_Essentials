@@ -43,7 +43,7 @@ public abstract class BasePage {
     protected abstract String getPageTitle();
 
     public boolean isPageOpened() {
-        return wait.until(webDriver -> webDriver.getTitle().contains(pageTitle) && webDriver.getCurrentUrl().contains(baseUrl + pageSlug));
+        return wait.until(webDriver -> webDriver.getTitle().contains(getPageTitle()) && webDriver.getCurrentUrl().contains(baseUrl + getPageSlug()));
     }
 
     public void open() {
@@ -59,7 +59,7 @@ public abstract class BasePage {
         return Arrays.stream(elements)
                 .allMatch(element -> {
                     try {
-                        wait.until(visibilityOf(element));
+                        waitForElementsAppearance(element);
                         return true;
                     } catch (TimeoutException e) {
                         return false;
