@@ -12,7 +12,7 @@ public class AlertsPage extends BasePage {
     private static final String PAGE_SLUG = "/javascript_alerts";
 
     public AlertsPage(WebDriver driver) {
-        super(driver);
+        super(driver, PAGE_TITLE, PAGE_SLUG);
     }
 
     @Override

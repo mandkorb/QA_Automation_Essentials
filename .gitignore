@@ -59,6 +59,12 @@ allure-results
 # VSCode
 .vscode
 
+# Cursor
+.cursor
+
+# Downloaded resources
+src/test/resources/downloads
+
 # Test spaces
 src/main/java/playground
 src/test/java/playground
