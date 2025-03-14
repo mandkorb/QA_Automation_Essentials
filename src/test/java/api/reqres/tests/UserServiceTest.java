@@ -80,7 +80,7 @@ public class UserServiceTest {
     @DataProvider(name = "invalidRegisterCredentials")
     public Object[][] provideInvalidRegisterCredentials() {
         return new Object[][]{
-                {"sydney@fife", "Missing PASSWORD"}
+                {"sydney@fife", "Missing password"}
         };
     }
 }
