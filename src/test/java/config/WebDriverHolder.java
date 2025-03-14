@@ -19,6 +19,8 @@ public class WebDriverHolder {
     private static final Logger logger = LoggerFactory.getLogger(WebDriverHolder.class);
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
     
+    private static final String DEFAULT_BROWSER = "chrome";
+    
     private WebDriverHolder() {
     }
     
@@ -28,7 +30,8 @@ public class WebDriverHolder {
      * @param browserType The type of browser to initialize (chrome, firefox, edge, safari)
      * @return The WebDriver instance for the current thread
      */
-    public static WebDriver initDriver(String browserType) {
+    public static WebDriver initDriver() {
+        String browserType = System.getProperty("browser", DEFAULT_BROWSER);
         if (driverThreadLocal.get() != null) {
             logger.info("WebDriver is already initialized for current thread. Returning existing instance.");
             return driverThreadLocal.get();
@@ -72,10 +75,10 @@ public class WebDriverHolder {
     }
 
     private static WebDriver createWebDriver(String browserType) {
+        logger.info("Creating WebDriver for browser: {}", browserType);
         switch (browserType.toLowerCase()) {
-            case "chrome": {
+            case "chrome":
                 return new ChromeDriver(getOptions());
-            }
             case "firefox":
                 return new FirefoxDriver();
             case "edge":
@@ -83,8 +86,8 @@ public class WebDriverHolder {
             case "safari":
                 return new SafariDriver();
             default:
-                logger.info("Browser type not recognized. Defaulting to Chrome.");
-                return new ChromeDriver();
+                logger.warn("Browser type '{}' not recognized. Defaulting to Chrome.", browserType);
+                return new ChromeDriver(getOptions());
         }
     }
 

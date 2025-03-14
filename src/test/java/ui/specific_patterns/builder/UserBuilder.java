@@ -10,5 +10,4 @@ public class UserBuilder {
     private String lastName;
     private String email;
     private String password;
-
 }

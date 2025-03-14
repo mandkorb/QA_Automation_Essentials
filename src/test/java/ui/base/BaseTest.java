@@ -20,7 +20,7 @@ public abstract class BaseTest {
     @BeforeClass
     public void setupSuite() {
         setupDownloadDir();
-        WebDriverHolder.initDriver("chrome");
+        WebDriverHolder.initDriver();
     }
 
     @AfterClass
