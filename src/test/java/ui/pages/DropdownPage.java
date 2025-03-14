@@ -2,9 +2,9 @@ package ui.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ui.base.BasePage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import ui.base.BasePage;
 
 public class DropdownPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
@@ -13,8 +13,8 @@ public class DropdownPage extends BasePage {
     @FindBy(id = "dropdown")
     private WebElement dropdown;
 
-    public DropdownPage(WebDriver driver) {
-        super(driver);
+    public DropdownPage() {
+        super();
     }
 
     @Override

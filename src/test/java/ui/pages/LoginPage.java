@@ -2,8 +2,8 @@ package ui.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import ui.base.BasePage;
-import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
@@ -24,8 +24,8 @@ public class LoginPage extends BasePage {
     @FindBy(css = "#flash.error")
     private WebElement errorFlash;
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
+        super();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class LoginPage extends BasePage {
 
     public SecurePage clickOnSubmitButton() {
         submitButton.click();
-        return new SecurePage(driver);
+        return new SecurePage();
     }
 
     public boolean isErrorFlashPresent() {

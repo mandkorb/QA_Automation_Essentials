@@ -2,9 +2,9 @@ package ui.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ui.base.BasePage;
+
 import lombok.Getter;
-import org.openqa.selenium.WebDriver;
+import ui.base.BasePage;
 
 public class FramesPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
@@ -13,8 +13,8 @@ public class FramesPage extends BasePage {
     @FindBy(tagName = "body")
     private WebElement frameContentLocator;
 
-    public FramesPage(WebDriver driver) {
-        super(driver);
+    public FramesPage() {
+        super();
     }
 
     @Override

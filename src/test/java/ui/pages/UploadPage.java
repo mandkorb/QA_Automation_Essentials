@@ -1,10 +1,10 @@
 package ui.pages;
 
-import config.Configuration;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import config.Configuration;
 import ui.base.BasePage;
 import ui.base.TestFile;
 
@@ -27,8 +27,8 @@ public class UploadPage extends BasePage {
     @FindBy(id = "uploaded-files")
     private WebElement uploadedFilePanel;
 
-    public UploadPage(WebDriver driver) {
-        super(driver);
+    public UploadPage() {
+        super();
     }   
 
     @Override

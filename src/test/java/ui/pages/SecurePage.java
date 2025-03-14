@@ -1,11 +1,11 @@
 package ui.pages;
 
-import org.openqa.selenium.support.FindBy;
-import ui.base.BasePage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import ui.base.BasePage;
 
 public class SecurePage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
@@ -23,8 +23,8 @@ public class SecurePage extends BasePage {
     @FindBy(css = "[class$=signout]")
     private WebElement signOutButton;
 
-    public SecurePage(WebDriver driver) {
-        super(driver);
+    public SecurePage() {
+        super();
     }
 
     @Override

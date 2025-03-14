@@ -13,7 +13,7 @@ public class DropdownTests extends BaseTest {
 
     @BeforeMethod
     public void openDropdownPage() {
-        dropdownPage = new DropdownPage(driver);
+        dropdownPage = new DropdownPage();
         dropdownPage.open();
     }
 

@@ -3,7 +3,6 @@ package ui.pages;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -20,8 +19,8 @@ public class HoversPage extends BasePage {
     @FindBy(css = ".figure h5")
     private List<WebElement> figureCaptions;
 
-    public HoversPage(WebDriver driver) {
-        super(driver);
+    public HoversPage() {
+        super();
     }
 
     @Override

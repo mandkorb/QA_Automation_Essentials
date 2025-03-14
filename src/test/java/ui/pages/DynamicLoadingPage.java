@@ -2,8 +2,8 @@ package ui.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import ui.base.BasePage;
-import org.openqa.selenium.WebDriver;
 
 public class DynamicLoadingPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
@@ -25,8 +25,8 @@ public class DynamicLoadingPage extends BasePage {
     @FindBy(css = "#loading")
     private WebElement loader;
 
-    public DynamicLoadingPage(WebDriver driver) {
-        super(driver);
+    public DynamicLoadingPage() {
+        super();
     }
 
     @Override

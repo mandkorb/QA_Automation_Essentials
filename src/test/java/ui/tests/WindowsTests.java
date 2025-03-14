@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 public class WindowsTests extends BaseTest {
     private WindowsPage windowsPage;
 
-    @BeforeMethod
+    @BeforeMethod   
     public void openFramesPage() {
-        windowsPage = new WindowsPage(driver);
+        windowsPage = new WindowsPage();
         windowsPage.open();
     }
 

@@ -12,7 +12,7 @@ public class AlertsTest extends BaseTest {
 
     @BeforeMethod
     public void openAlertsPage() {
-        alertsPage = new AlertsPage(driver);
+        alertsPage = new AlertsPage();
         alertsPage.open();
     }
 

@@ -13,7 +13,7 @@ public class FramesTests extends BaseTest {
 
     @BeforeMethod
     public void openFramesPage() {
-        framesPage = new FramesPage(driver);
+        framesPage = new FramesPage();
         framesPage.open();
     }
 

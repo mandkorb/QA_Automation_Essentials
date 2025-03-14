@@ -1,6 +1,7 @@
 package ui.base;
 
 import config.Configuration;
+import config.WebDriverHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Objects;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
@@ -19,23 +19,12 @@ public abstract class BasePage {
     protected final WebDriver driver;
     protected WebDriverWait wait;
     private final String baseUrl;
-    private String pageTitle;
-    private String pageSlug;
 
-    public BasePage(WebDriver driver) {
-        this.driver = Objects.requireNonNull(driver, "Driver cannot be null");
-        baseUrl = Configuration.getProperty("heroku.url");
+    public BasePage() {
+        this.driver = WebDriverHolder.getDriver();
+        this.baseUrl = Configuration.getProperty("heroku.url");
         setWaitDurationInSeconds(DEFAULT_ELEMENT_WAIT_DURATION);
         PageFactory.initElements(driver, this);
-    }
-
-    public BasePage(WebDriver driver, String pageTitle, String pageSlug) {
-        this.driver = Objects.requireNonNull(driver, "Driver cannot be null");
-        baseUrl = Configuration.getProperty("heroku.url");
-        setWaitDurationInSeconds(DEFAULT_ELEMENT_WAIT_DURATION);
-        PageFactory.initElements(driver, this);
-        this.pageTitle = pageTitle;
-        this.pageSlug = pageSlug;
     }
 
     protected abstract String getPageSlug();
@@ -43,7 +32,8 @@ public abstract class BasePage {
     protected abstract String getPageTitle();
 
     public boolean isPageOpened() {
-        return wait.until(webDriver -> webDriver.getTitle().contains(getPageTitle()) && webDriver.getCurrentUrl().contains(baseUrl + getPageSlug()));
+        return wait.until(webDriver -> webDriver.getTitle().contains(getPageTitle()) 
+            && webDriver.getCurrentUrl().contains(baseUrl + getPageSlug()));
     }
 
     public void open() {

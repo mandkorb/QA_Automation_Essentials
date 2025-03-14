@@ -16,8 +16,8 @@ public class DownloadTests extends BaseTest {
 
     @BeforeMethod
     public void setup() {
-        downloadPage = new DownloadPage(driver);
-        uploadPage = new UploadPage(driver);
+        downloadPage = new DownloadPage();
+        uploadPage = new UploadPage();
         testFile = new TestFile();
     }
 

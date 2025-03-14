@@ -14,7 +14,7 @@ public class UploadTests extends BaseTest {
 
     @BeforeMethod
     public void openUploadPage() {
-        uploadPage = new UploadPage(driver);
+        uploadPage = new UploadPage();
         uploadPage.open();
         testFile = new TestFile();
     }

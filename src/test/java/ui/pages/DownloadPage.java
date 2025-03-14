@@ -2,7 +2,6 @@ package ui.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.base.BasePage;
@@ -18,8 +17,8 @@ public class DownloadPage extends BasePage {
     @FindBy(xpath = "//h3[text()='File Downloader']")
     private WebElement header;
 
-    public DownloadPage(WebDriver driver) {
-        super(driver);
+    public DownloadPage() {
+        super();
     }
 
     @Override

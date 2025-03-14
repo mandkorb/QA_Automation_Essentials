@@ -1,11 +1,11 @@
 package ui.pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ui.base.BasePage;
+
 import lombok.Getter;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import ui.base.BasePage;
 
 public class WindowsPage extends BasePage {
     private static final String PAGE_TITLE = "The Internet";
@@ -20,8 +20,8 @@ public class WindowsPage extends BasePage {
     @FindBy(css = ".example>h3")
     private WebElement newPageContent;
 
-    public WindowsPage(WebDriver driver) {
-        super(driver);
+    public WindowsPage() {
+        super();
     }
 
     @Override

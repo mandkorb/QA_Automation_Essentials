@@ -1,7 +1,5 @@
 package ui.pages;
 
-import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -24,8 +22,8 @@ public class DragNDropPage extends BasePage {
     @FindBy(xpath = "//div[@id='column-b']/header")
     private WebElement columnBHeader;
 
-    public DragNDropPage(WebDriver driver) {
-        super(driver);
+    public DragNDropPage() {
+        super();
     }
 
     @Override

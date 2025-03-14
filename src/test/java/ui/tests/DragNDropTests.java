@@ -13,7 +13,7 @@ public class DragNDropTests extends BaseTest {
 
     @BeforeMethod
     public void openDragNDropPage() {
-        dragNDropPage = new DragNDropPage(driver);
+        dragNDropPage = new DragNDropPage();
         dragNDropPage.open();
     }
 

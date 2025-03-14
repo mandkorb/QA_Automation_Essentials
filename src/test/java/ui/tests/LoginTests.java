@@ -14,7 +14,7 @@ public class LoginTests extends BaseTest {
 
     @BeforeMethod
     public void openAlertsPage() {
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage();
         loginPage.open();
     }
 

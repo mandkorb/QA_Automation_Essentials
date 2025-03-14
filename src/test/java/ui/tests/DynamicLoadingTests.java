@@ -11,7 +11,7 @@ public class DynamicLoadingTests extends BaseTest {
 
     @BeforeMethod
     public void openDynamicLoadingPage() {
-        dynamicLoadingPage = new DynamicLoadingPage(driver);
+        dynamicLoadingPage = new DynamicLoadingPage();
         dynamicLoadingPage.open();
     }
 

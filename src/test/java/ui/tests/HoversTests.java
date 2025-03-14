@@ -13,7 +13,7 @@ public class HoversTests extends BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        hoversPage = new HoversPage(driver);
+        hoversPage = new HoversPage();
         hoversPage.open();
     }
 
