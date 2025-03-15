@@ -23,14 +23,21 @@ public class BaseSpec {
     protected static final RequestSpecification requestSpec = new RequestSpecBuilder()
                 .setBaseUri(BASE_URL)
                 .setContentType(ContentType.JSON)
-                .build();;
+                .build();
     protected static final ResponseSpecification successResponseSpec = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .expectContentType(ContentType.JSON)
             .expectResponseTime(lessThan(5L), TimeUnit.SECONDS)
-            .build();;
+            .build();
+
+    private static final long TOKEN_EXPIRATION_TIME = 3600000;
+    private long tokenTimestamp;
 
     public BaseSpec() {
+        refreshAuthSpec();
+    }
+
+    private void refreshAuthSpec() {
         requestAuthSpec = new RequestSpecBuilder()
                 .addRequestSpecification(requestSpec)
                 .addHeader("Authorization", "Bearer " + getToken())
@@ -38,10 +45,15 @@ public class BaseSpec {
     }
 
     public String getToken() {
-        if (token == null) {
+        if (token == null || isTokenExpired()) {
             token = fetchNewToken();
+            tokenTimestamp = System.currentTimeMillis();
         }
         return token;
+    }
+
+    private boolean isTokenExpired() {
+        return System.currentTimeMillis() - tokenTimestamp > TOKEN_EXPIRATION_TIME;
     }
 
     private String fetchNewToken() {
