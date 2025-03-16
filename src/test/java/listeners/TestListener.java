@@ -1,10 +1,15 @@
 package listeners;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import config.WebDriverHolder;
+import io.qameta.allure.Attachment;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +31,7 @@ public class TestListener implements ITestListener {
         logger.error("Test failed: {} - {}", 
             result.getName(), 
             result.getThrowable().getMessage());
+            takeScreenshot();
     }
 
     @Override
@@ -66,5 +72,10 @@ public class TestListener implements ITestListener {
         logger.info("Failed: {}", failed);
         logger.info("Skipped: {}", skipped);
         logger.info("Success Rate: {}%", (total > 0) ? (passed * 100 / total) : 0);
+    }
+
+    @Attachment(value = "Screenshot on failure", type = "image/png")
+    private byte[] takeScreenshot() {
+        return ((TakesScreenshot) WebDriverHolder.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 } 
