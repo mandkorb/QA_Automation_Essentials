@@ -3,6 +3,8 @@ package ui.base;
 import config.Configuration;
 import config.WebDriverHolder;
 import io.qameta.allure.Attachment;
+import listeners.TestListener;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +13,7 @@ import org.testng.annotations.*;
 
 import java.io.File;
 
+@Listeners(TestListener.class)
 public abstract class BaseTest {
     protected static final String USERNAME = Configuration.getProperty("heroku.username");
     protected static final String PASSWORD = Configuration.getProperty("heroku.password");
