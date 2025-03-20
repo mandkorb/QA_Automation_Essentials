@@ -30,6 +30,7 @@ public class WebDriverHolder {
      * @param browserType The type of browser to initialize (chrome, firefox, edge, safari)
      * @return The WebDriver instance for the current thread
      */
+
     public static WebDriver initDriver() {
         String browserType = System.getProperty("browser", DEFAULT_BROWSER);
         if (driverThreadLocal.get() != null) {
