@@ -31,6 +31,7 @@ public class WebDriverHolder {
      * @return The WebDriver instance for the current thread
      */
 
+
     public static WebDriver initDriver() {
         String browserType = System.getProperty("browser", DEFAULT_BROWSER);
         if (driverThreadLocal.get() != null) {
