@@ -39,7 +39,7 @@ public class WebDriverHolder {
             return driverThreadLocal.get();
         }
         logger.info("Initializing {} WebDriver for thread: {}", 
-            browserType, Thread.currentThread().threadId());
+            browserType, Thread.currentThread());
         WebDriver driver = createWebDriver(browserType);
         driver.manage().window().maximize();
         driverThreadLocal.set(driver);
@@ -65,7 +65,7 @@ public class WebDriverHolder {
     public static void quitDriver() {
         WebDriver driver = driverThreadLocal.get();
         if (driver != null) {
-            logger.info("Quitting WebDriver for thread: {}", Thread.currentThread().threadId());
+            logger.info("Quitting WebDriver for thread: {}", Thread.currentThread());
             try {
                 driver.quit();
             } catch (Exception e) {

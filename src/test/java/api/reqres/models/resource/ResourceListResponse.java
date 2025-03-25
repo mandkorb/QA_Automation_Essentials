@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -17,8 +18,8 @@ public class ResourceListResponse {
     public boolean areYearsASCSorted() {
         List<Integer> years = data.stream()
                 .map(resource -> Integer.parseInt(resource.getYear()))
-                .toList();
-        List<Integer> yearsSorted = years.stream().sorted().toList();
+                .collect(Collectors.toList());
+        List<Integer> yearsSorted = years.stream().sorted().collect(Collectors.toList());
         return yearsSorted.equals(years);
     }
 }
