@@ -4,6 +4,8 @@ import config.Configuration;
 import config.WebDriverHolder;
 import io.qameta.allure.Attachment;
 import listeners.TestListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -15,6 +17,7 @@ import java.io.File;
 
 @Listeners(TestListener.class)
 public abstract class BaseTest {
+    private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
     protected static final String USERNAME = Configuration.getProperty("heroku.username");
     protected static final String PASSWORD = Configuration.getProperty("heroku.password");
     public static final String DOWNLOAD_DIR_PATH = "src/test/resources/downloads";
@@ -34,13 +37,22 @@ public abstract class BaseTest {
     @AfterMethod
     public void takeScreenshotWhenFailed(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
-            takeScreenshot();
+            try {
+                takeScreenshot();
+            } catch (Exception e) {
+                logger.error("Failed to take screenshot: {}", e.getMessage());
+            }
         }
     }
 
     @Attachment(value = "Screenshot on failure", type = "image/png")
     public byte[] takeScreenshot() {
-        return ((TakesScreenshot) WebDriverHolder.getDriver()).getScreenshotAs(OutputType.BYTES);
+        WebDriver driver = WebDriverHolder.getDriver();
+        if (driver == null) {
+            logger.warn("WebDriver is null, cannot take screenshot");
+            return new byte[0];
+        }
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
     private void setupDownloadDir() {

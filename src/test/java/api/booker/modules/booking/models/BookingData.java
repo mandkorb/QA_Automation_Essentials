@@ -2,27 +2,40 @@ package api.booker.modules.booking.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.Value;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
+@Value
 @Builder
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingData {
     @JsonProperty("firstname")
-    private String firstName;
+    String firstName;
     @JsonProperty("lastname")
-    private String lastName;
+    String lastName;
     @JsonProperty("totalprice")
-    private Integer totalPrice;
+    Integer totalPrice;
     @JsonProperty("depositpaid")
-    private Boolean isDepositPaid;
+    Boolean isDepositPaid;
     @JsonProperty("bookingdates")
-    private BookingDates bookingDates;
+    BookingDates bookingDates;
     @JsonProperty("additionalneeds")
-    private String additionalNeeds;
+    String additionalNeeds;
+
+    @JsonCreator
+    public BookingData(
+            @JsonProperty("firstname") String firstName,
+            @JsonProperty("lastname") String lastName,
+            @JsonProperty("totalprice") Integer totalPrice,
+            @JsonProperty("depositpaid") Boolean isDepositPaid,
+            @JsonProperty("bookingdates") BookingDates bookingDates,
+            @JsonProperty("additionalneeds") String additionalNeeds) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.totalPrice = totalPrice;
+        this.isDepositPaid = isDepositPaid;
+        this.bookingDates = bookingDates;
+        this.additionalNeeds = additionalNeeds;
+    }
 }

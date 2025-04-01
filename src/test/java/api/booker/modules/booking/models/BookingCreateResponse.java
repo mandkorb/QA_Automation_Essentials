@@ -2,14 +2,23 @@ package api.booker.modules.booking.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.Value;
 
-@Getter
+@Value
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingCreateResponse {
     @JsonProperty("bookingid")
-    private int bookingId;
-    private BookingData booking;
+    int bookingId;
+    BookingData booking;
+
+    @JsonCreator
+    public BookingCreateResponse(
+            @JsonProperty("bookingid") int bookingId,
+            @JsonProperty("booking") BookingData booking) {
+        this.bookingId = bookingId;
+        this.booking = booking;
+    }
 
     public boolean areResponseDataEqualsToGiven(BookingRequest newBooking) {
         return booking.getFirstName().equals(newBooking.getFirstName())

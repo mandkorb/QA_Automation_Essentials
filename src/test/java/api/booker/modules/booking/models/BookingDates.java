@@ -1,19 +1,23 @@
 package api.booker.modules.booking.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Value;
 
-
+@Value
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
 public class BookingDates {
     @JsonProperty("checkin")
-    private String checkIn;
+    String checkIn;
     @JsonProperty("checkout")
-    private String checkOut;
+    String checkOut;
+
+    @JsonCreator
+    public BookingDates(
+            @JsonProperty("checkin") String checkIn,
+            @JsonProperty("checkout") String checkOut) {
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+    }
 }
