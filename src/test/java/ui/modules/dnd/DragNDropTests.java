@@ -1,7 +1,6 @@
-package ui.tests;
+package ui.modules.dnd;
 
 import ui.base.BaseTest;
-import ui.pages.DragNDropPage;
 
 import static org.testng.Assert.assertTrue;
 

@@ -1,4 +1,4 @@
-package ui.pages;
+package ui.modules.alerts;
 
 import ui.base.BasePage;
 import lombok.Getter;

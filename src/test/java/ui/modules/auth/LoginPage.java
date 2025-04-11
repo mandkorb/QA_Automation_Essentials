@@ -1,4 +1,4 @@
-package ui.pages;
+package ui.modules.auth;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

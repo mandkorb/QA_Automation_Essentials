@@ -5,7 +5,6 @@ import api.booker.modules.booking.models.BookingCreateResponse;
 import api.booker.modules.booking.models.BookingDates;
 import api.booker.modules.booking.models.BookingRequest;
 import api.booker.modules.booking.models.BookingData;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -42,6 +41,7 @@ public class BookingServiceImplTests extends BaseApiTest {
                 .bookingDates(bookingDates)
                 .additionalNeeds(additionalNeeds)
                 .build();
+
         BookingCreateResponse response = bookingServiceImpl.createBooking(booking);
         assertNotNull(response);
         assertTrue(response.areResponseDataEqualsToGiven(booking));

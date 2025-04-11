@@ -1,7 +1,6 @@
-package ui.tests;
+package ui.modules.alerts;
 
 import ui.base.BaseTest;
-import ui.pages.AlertsPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

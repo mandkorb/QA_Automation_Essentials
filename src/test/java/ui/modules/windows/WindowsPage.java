@@ -1,4 +1,4 @@
-package ui.pages;
+package ui.modules.windows;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;

@@ -1,4 +1,4 @@
-package ui.tests;
+package ui.modules.hovers;
 
 import static org.testng.Assert.assertTrue;
 
@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import ui.base.BaseTest;
-import ui.pages.HoversPage;
 
 public class HoversTests extends BaseTest {
     HoversPage hoversPage;

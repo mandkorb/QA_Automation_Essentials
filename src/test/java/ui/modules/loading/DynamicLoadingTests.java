@@ -1,7 +1,6 @@
-package ui.tests;
+package ui.modules.loading;
 
 import ui.base.BaseTest;
-import ui.pages.DynamicLoadingPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

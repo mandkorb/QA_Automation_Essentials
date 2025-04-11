@@ -1,4 +1,4 @@
-package ui.pages;
+package ui.modules.files_manipulation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

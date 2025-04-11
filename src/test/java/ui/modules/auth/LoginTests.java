@@ -1,8 +1,6 @@
-package ui.tests;
+package ui.modules.auth;
 
 import ui.base.BaseTest;
-import ui.pages.LoginPage;
-import ui.pages.SecurePage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

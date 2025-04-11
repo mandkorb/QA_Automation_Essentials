@@ -1,4 +1,4 @@
-package ui.tests;
+package ui.modules.misc;
 
 import com.basics.demo.calculator.Calculator;
 import org.apache.commons.io.FileUtils;

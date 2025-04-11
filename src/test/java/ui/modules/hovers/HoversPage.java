@@ -1,4 +1,4 @@
-package ui.pages;
+package ui.modules.hovers;
 
 import java.util.List;
 import java.util.stream.IntStream;

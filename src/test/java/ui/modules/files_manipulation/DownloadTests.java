@@ -1,11 +1,9 @@
-package ui.tests;
+package ui.modules.files_manipulation;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ui.base.BaseTest;
 import ui.base.TestFile;
-import ui.pages.DownloadPage;
-import ui.pages.UploadPage;
 
 import static org.testng.Assert.assertTrue;
 
