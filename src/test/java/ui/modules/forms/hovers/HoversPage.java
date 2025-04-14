@@ -1,4 +1,4 @@
-package ui.modules.hovers;
+package ui.modules.forms.hovers;
 
 import java.util.List;
 import java.util.stream.IntStream;

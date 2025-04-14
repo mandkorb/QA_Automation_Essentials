@@ -1,4 +1,4 @@
-package ui.modules.elements;
+package ui.modules.forms.button;
 
 import java.util.List;
 import org.openqa.selenium.WebElement;

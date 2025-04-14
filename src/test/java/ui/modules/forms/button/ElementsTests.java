@@ -1,4 +1,4 @@
-package ui.modules.elements;
+package ui.modules.forms.button;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;

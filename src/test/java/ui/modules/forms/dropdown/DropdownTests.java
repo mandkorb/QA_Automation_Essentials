@@ -1,4 +1,4 @@
-package ui.modules.forms;
+package ui.modules.forms.dropdown;
 
 import ui.base.BaseTest;
 import org.testng.Assert;

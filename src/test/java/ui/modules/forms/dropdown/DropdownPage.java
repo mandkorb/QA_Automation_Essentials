@@ -1,4 +1,4 @@
-package ui.modules.forms;
+package ui.modules.forms.dropdown;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
