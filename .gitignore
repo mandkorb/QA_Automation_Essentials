@@ -49,9 +49,6 @@ drivers
 *.mp3
 *.form
 
-# Properties
-*.properties
-
 # Allure
 .allure
 allure-results

@@ -9,7 +9,7 @@ import ui.base.BaseTest;
 
 public class ElementsTests extends BaseTest {
   private ElementsPage elementsPage;
-  private static final int ADDITIONAL_ELEMENTS = 5;
+  private static final int ADDITIONAL_ELEMENTS_COUNT = 5;
 
   @BeforeMethod
   public void openElementsPage() {
@@ -29,8 +29,8 @@ public class ElementsTests extends BaseTest {
 
   @Test
   public void addAndDeleteMultipleElements() {
-    elementsPage.clickAddElementButtonMultipleTimes(ADDITIONAL_ELEMENTS);
-    assertEquals(elementsPage.getElementsCount(), ADDITIONAL_ELEMENTS);
+    elementsPage.clickAddElementButtonMultipleTimes(ADDITIONAL_ELEMENTS_COUNT);
+    assertEquals(elementsPage.getElementsCount(), ADDITIONAL_ELEMENTS_COUNT);
     elementsPage.clickDeleteAllElementButtons();
     assertEquals(elementsPage.getElementsCount(), 0);
   }
