@@ -3,6 +3,7 @@ package config;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -54,7 +55,8 @@ public class WebDriverHolder {
     public static WebDriver getDriver() {
         WebDriver driver = driverThreadLocal.get();
         if (driver == null) {
-            logger.warn("WebDriver has not been initialized for current thread. Call initDriver first.");
+            logger.warn("WebDriver has not been initialized for current thread. Calling initDriver first.");
+            driver = createWebDriver(DEFAULT_BROWSER);
         }
         return driver;
     }
@@ -95,11 +97,38 @@ public class WebDriverHolder {
 
     private static ChromeOptions getOptions() {
         ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = getStringObjectPrefsMap();
+
+        options.setExperimentalOption("prefs", prefs);
+
+        // Command line arguments
+        options.addArguments("--disable-features=PasswordsLeakDetection");
+        options.addArguments("--disable-notifications");
+        options.addArguments("--disable-popup-blocking");
+        options.addArguments("--disable-save-password-bubble");
+        options.addArguments("--start-maximized");
+        options.addArguments("--incognito"); // Using incognito mode can help avoid saved password dialogs
+
+        return options;
+    }
+
+    private static Map<String, Object> getStringObjectPrefsMap() {
         Map<String, Object> prefs = new HashMap<>();
+
+        // Download preferences
         prefs.put("download.default_directory", DOWNLOAD_DIR.getAbsolutePath());
         prefs.put("download.prompt_for_download", false);
         prefs.put("download.directory_upgrade", true);
-        options.setExperimentalOption("prefs", prefs);
-        return options;
+
+        // Disable password saving completely
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        prefs.put("password_manager_enabled", false);
+
+        // Additional settings to disable notifications and popups
+        prefs.put("profile.default_content_setting_values.notifications", 2);
+        prefs.put("profile.default_content_settings.popups", 0);
+        prefs.put("profile.managed_default_content_settings.popups", 1);
+        return prefs;
     }
 }

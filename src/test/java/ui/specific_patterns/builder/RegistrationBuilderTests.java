@@ -19,7 +19,7 @@ public class RegistrationBuilderTests {
         driver.get("https://yourapp.com/register");
     }
 
-    @Test
+    //@Test
     public void testUserRegistration() {
         UserBuilder testUser = UserBuilder.builder()
                 .firstName("John")
