@@ -4,8 +4,8 @@ pipeline {
         stage('Checkout') {
             agent {
                 docker {
-                    image 'selenium/standalone-chrome:latest'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2'
+                    image 'maven:3.8.6-openjdk-11'
+                    args '-u root -v $HOME/.m2:/root/.m2' // Run as root, cache Maven deps
                 }
             }
             steps {
@@ -15,30 +15,30 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'selenium/standalone-chrome:latest'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2'
+                    image 'maven:3.8.6-openjdk-11'
+                    args '-u root -v $HOME/.m2:/root/.m2'
                 }
             }
             steps {
-                sh 'mvn clean install -DskipTests'
+                sh 'clean -Dtest=BookingServiceImplTests test'
             }
         }
-        stage('Run Tests') {
+        stage('Run API Tests') {
             agent {
                 docker {
-                    image 'selenium/standalone-chrome:latest'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 --network host'
+                    image 'maven:3.8.6-openjdk-11'
+                    args '-u root -v $HOME/.m2:/root/.m2'
                 }
             }
             steps {
-                sh 'mvn test -Ptestng' // Assumes TestNG profile
+                sh 'mvn test -Ptestng' // Adjust profile if needed
             }
         }
         stage('Generate Allure Report') {
             agent {
                 docker {
-                    image 'selenium/standalone-chrome:latest'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2'
+                    image 'maven:3.8.6-openjdk-11'
+                    args '-u root -v $HOME/.m2:/root/.m2'
                 }
             }
             steps {
